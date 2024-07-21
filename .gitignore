@@ -1,0 +1,44 @@
+## Client:
+
+# Compiled output
+kirilanatur.client/dist
+kirilanatur.client/tmp
+kirilanatur.client/out-tsc
+kirilanatur.client/bazel-out
+
+# Node
+kirilanatur.client/node_modules
+kirilanatur.client/npm-debug.log
+kirilanatur.client/yarn-error.log
+
+# IDEs and editors
+kirilanatur.client/.idea/
+kirilanatur.client/.project
+kirilanatur.client/.classpath
+kirilanatur.client/.c9/
+kirilanatur.client/*.launch
+kirilanatur.client/.settings/
+kirilanatur.client/*.sublime-workspace
+
+# Visual Studio Code
+kirilanatur.client/.vscode/*
+kirilanatur.client/!.vscode/settings.json
+kirilanatur.client/!.vscode/tasks.json
+kirilanatur.client/!.vscode/launch.json
+kirilanatur.client/!.vscode/extensions.json
+kirilanatur.client/.history/*
+
+# Miscellaneous
+kirilanatur.client/.angular/cache
+kirilanatur.client/.sass-cache/
+kirilanatur.client/connect.lock
+kirilanatur.client/coverage
+kirilanatur.client/libpeerconnection.log
+kirilanatur.client/testem.log
+kirilanatur.client/typings
+
+# System files
+kirilanatur.client/.DS_Store
+kirilanatur.client/Thumbs.db
+
+## Server:
