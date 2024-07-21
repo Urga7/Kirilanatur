@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "oVWuuelthCZuXp68WFc2jSHpMaXnBvCJnpMqjnyAtkc=",
+  "Source": "Kirilanatur.Server",
+  "BasePath": "_content/Kirilanatur.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Personal_Documents\\02_Personal\\02_Projects\\Kirilanatur\\kirilanatur.client\\kirilanatur.client.esproj",
+      "Version": 2,
+      "Source": "kirilanatur.client",
+      "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
