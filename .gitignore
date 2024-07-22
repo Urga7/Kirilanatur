@@ -1,5 +1,8 @@
-## Client:
+## Root:
+.idea
+.vs
 
+## Client:
 # Compiled output
 kirilanatur.client/dist
 kirilanatur.client/tmp
@@ -42,3 +45,5 @@ kirilanatur.client/.DS_Store
 kirilanatur.client/Thumbs.db
 
 ## Server:
+Kirilanatur.Server/bin
+Kirilanatur.Server/obj
