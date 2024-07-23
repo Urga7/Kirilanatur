@@ -16,7 +16,7 @@ namespace Kirilanatur.Server.Models {
         [Range(0, double.MaxValue)]
         public decimal Price { get; set; }
         
-        [Range(0, double.MaxValue)]
+        [Range(0, 100)]
         public int Discount { get; set; }
         
         public bool Availability { get; set; }

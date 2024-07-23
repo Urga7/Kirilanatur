@@ -1,1 +1,124 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html {
+  font-family: 'Poppins', 'sans-serif';
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  appearance: none;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: rgba(197, 197, 197, 0.50);
+
+  &:hover {
+    background-color: rgba(197, 197, 197, 0.35);
+  }
+
+  &:active {
+    background-color: rgba(197, 197, 197, 0.2);
+  }
+}
+
+select {
+  padding: 8px;
+  margin: 5px;
+  outline: none;
+  border-radius: 0;
+  appearance: none;
+  background-color: white;
+  border: 1px solid #7a7a7a;
+}
+
+input {
+  padding: 10px;
+  margin: 5px;
+  appearance: none;
+  border: 1px solid #7a7a7a;
+}
+
+.data-container {
+  margin: 40px;
+  display: flex;
+  justify-content: center;
+
+  table {
+    border-collapse: collapse;
+    thead {
+      tr {
+        border-bottom: 1px solid #333;
+      }
+    }
+    tbody {
+      tr {
+        border-bottom: 1px solid lightgray;
+        border-left: 1px solid #efefef;
+        border-right: 1px solid #efefef;
+        td {
+          padding: 0 10px;
+
+          a {
+            color: #333;
+            &:hover {
+              cursor: pointer;
+            }
+          }
+
+          form {
+            .button-and-feedback-container {
+              display: flex;
+              justify-content: center;
+              button {
+                margin: 10px;
+              }
+              .info-container {
+                display: flex;
+                align-items: center;
+              }
+            }
+          }
+        }
+      }
+
+      tr:nth-child(even) {
+        background-color: #f6f6f6;
+      }
+    }
+  }
+}
+
+.search-input {
+  margin: 40px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-container {
+  display: flex;
+  justify-content: center;
+
+  p {
+    margin-top: 30px;
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+
+.success-msg {
+  color: green;
+}
+
+.error-msg {
+  color: red;
+}

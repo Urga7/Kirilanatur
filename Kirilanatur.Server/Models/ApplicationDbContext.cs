@@ -2,10 +2,8 @@
 
 namespace Kirilanatur.Server.Models {
     
-    public class ApplicationDbContext : DbContext {
+    public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options) {
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
-        
         public DbSet<Product> Sandals { get; set; }
         public DbSet<ProductImage> SandalImages { get; set; }
         
