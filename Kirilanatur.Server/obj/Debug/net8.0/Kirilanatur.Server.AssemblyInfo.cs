@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kirilanatur.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ebbf6297b88faa9ccfdd7de4b96ec4d3151be5c1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+96752b298e16bea77b578fb5ce1bb6b6cff32866")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kirilanatur.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kirilanatur.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

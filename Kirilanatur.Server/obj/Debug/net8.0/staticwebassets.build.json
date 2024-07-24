@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "oVWuuelthCZuXp68WFc2jSHpMaXnBvCJnpMqjnyAtkc=",
+  "Hash": "bDu5ERdYwDRtQPuSF8TufoEFcJaLz3NF3t8Spj27yKo=",
   "Source": "Kirilanatur.Server",
   "BasePath": "_content/Kirilanatur.Server",
   "Mode": "Default",
@@ -11,10 +11,10 @@
       "Version": 2,
       "Source": "kirilanatur.client",
       "GetPublishAssetsTargets": "GetCurrentProjectPublishStaticWebAssetItems",
-      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishProperties": "",
       "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained",
       "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
-      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildProperties": "",
       "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier;SelfContained"
     }
   ],

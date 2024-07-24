@@ -1,0 +1,15 @@
+<div class="add-user-container">
+  <form [formGroup]="userForm" (ngSubmit)="addUserHandler()">
+    <label>
+      Name:
+      <input type="text" placeholder="Bob" formControlName="name" />
+    </label>
+    <label>
+      Surname:
+      <input type="text" placeholder="Jackson" formControlName="surname" />
+    </label>
+    <div class="button-container">
+      <button type="submit">Add</button>
+    </div>
+  </form>
+</div>

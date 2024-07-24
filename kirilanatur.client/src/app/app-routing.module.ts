@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DataFlowComponent } from "./data-flow/data-flow.component";
-import { WeatherForecastComponent } from "./weather-forecast/weather-forecast.component";
-import {HomeComponent} from "./home/home.component";
+import { DataFlowComponent } from "./components/data-flow/data-flow.component";
+import { WeatherForecastComponent } from "./components/weather-forecast/weather-forecast.component";
+import {HomeComponent} from "./components/home/home.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
