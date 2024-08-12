@@ -1,25 +1,50 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Kirilanatur.Server.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Kirilanatur.Server.Controllers {
     
     [ApiController]
     [Route("api/[controller]")]
     public class UsersController : ControllerBase {
+    
+        private readonly ApplicationDbContext _dbContext;
 
+        public UsersController(ApplicationDbContext dbDbContext) {
+            _dbContext = dbDbContext;
+        }
+        
         [HttpPost]
-        public IActionResult AddUser([FromBody] UserDto user) {
+        public async Task<IActionResult> AddProduct([FromBody] ProductDto productDto) {
             
-            // Logic to add user
-            string message = $"User {user.Name} {user.Surname} added successfully";
-            return Ok(new { message });
+            Product product = new Product {
+                Name = productDto.Name,
+                Description = productDto.Description,
+                Price = 100,
+                Discount = 0,
+                Availability = true,
+                Images = []
+            };
             
+            _dbContext.Products.Add(product);
+            await _dbContext.SaveChangesAsync();
+            
+            return Ok(new { message = "Product added successfully." });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetProducts() {
+
+            var products = await _dbContext.Products.Include(p => p.Images).ToListAsync();
+            return Ok(products);
+
         }
         
     }
 
-    public class UserDto {
+    public class ProductDto {
         public string Name { get; set; }
-        public string Surname { get; set; }
+        public string Description { get; set; }
     }
     
 }

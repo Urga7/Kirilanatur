@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from "rxjs";
 
-export interface User {
+export interface Product {
   name: string | null;
-  surname: string | null;
+  description: string | null;
 }
 
 @Injectable({
@@ -12,11 +12,15 @@ export interface User {
 })
 export class UserService {
 
-  private apiUrl = 'https://localhost:44387/api/Users';
+  private apiUrl: string = 'https://localhost:44387/api/Users';
   constructor(private http: HttpClient) { }
 
-  addUser(user: User): Observable<any> {
-    return this.http.post<{ message: string }>(this.apiUrl, user);
+  addUser(product: Product): Observable<any> {
+    return this.http.post<{ message: string }>(`${this.apiUrl}`, product);
+  }
+
+  getUsers(): Observable<any> {
+    return this.http.get(`${this.apiUrl}`);
   }
 
 }

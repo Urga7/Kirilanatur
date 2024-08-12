@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
-import { User, UserService } from "../../services/user/user.service";
+import { Product, UserService } from "../../services/user/user.service";
 
 @Component({
   selector: 'app-data-flow',
@@ -9,30 +9,44 @@ import { User, UserService } from "../../services/user/user.service";
 })
 export class DataFlowComponent {
 
+  products: any = [];
+
   userForm = new FormGroup({
     name: new FormControl(''),
-    surname: new FormControl(''),
+    description: new FormControl(''),
   });
 
   constructor(private userService: UserService) {}
 
   async addUserHandler(): Promise<void> {
-    const user: User = {
+    const product: Product = {
       name: this.userForm.value.name as string,
-      surname: this.userForm.value.surname as string,
+      description: this.userForm.value.description as string,
     };
 
-    this.userService.addUser(user).subscribe({
+    this.userService.addUser(product).subscribe({
       next: (response: any) => {
         alert(response.message);
         this.userForm.reset();
       },
       error: (error: any) => {
-        console.error('Error adding user:', error);
+        console.error('Error adding product: ', error);
       }
     });
 
     this.userForm.reset();
+  }
+
+  async getUsersHandler(): Promise<void> {
+    alert("Getting users...")
+    this.userService.getUsers().subscribe({
+      next: (response: any) => {
+        this.products = response;
+      },
+      error: (error: any) => {
+        console.error('Error getting products: ', error)
+      }
+    });
   }
 
 }

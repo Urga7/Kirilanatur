@@ -11,14 +11,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 builder.Services.AddCors(options => {
     //TODO: Configure more strictly for production
-    options.AddPolicy("AllowFrontendOrigin",
+    options.AddPolicy("AllowAllOrigins",
     policyBuilder => policyBuilder
-    .WithOrigins("https://localhost:4200")
+    .AllowAnyOrigin()
     .AllowAnyMethod()
-    .AllowAnyHeader()
-    .AllowCredentials());
+    .AllowAnyHeader());
 });
 
 var app = builder.Build();
@@ -33,13 +33,7 @@ if (app.Environment.IsDevelopment()) {
 }
 
 app.UseHttpsRedirection();
-
-app.UseCors("AllowFrontendOrigin");
-
-app.UseAuthorization();
-
+app.UseCors("AllowAllOrigins");
 app.MapControllers();
-
 app.MapFallbackToFile("/index.html");
-
 app.Run();
