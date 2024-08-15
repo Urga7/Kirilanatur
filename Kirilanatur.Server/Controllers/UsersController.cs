@@ -29,6 +29,7 @@ namespace Kirilanatur.Server.Controllers {
             _dbContext.Products.Add(product);
             await _dbContext.SaveChangesAsync();
             
+            // TODO: Return in unified form
             return Ok(new { message = "Product added successfully." });
         }
 

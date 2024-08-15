@@ -6,6 +6,7 @@ namespace Kirilanatur.Server.Models {
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
         
+        // Define tables
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         
