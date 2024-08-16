@@ -4,14 +4,14 @@ namespace Kirilanatur.Server.Models {
     
     public class Product {
         
+        [Key]
         public int Id { get; set; }
-
-        [Required]
+        
         [StringLength(100)]
-        public string Name { get; set; } = "";
+        public string Name { get; set; }
 
         [StringLength(1000)]
-        public string Description { get; set; } = "";
+        public string Description { get; set; }
         
         [Range(0, double.MaxValue)]
         public decimal Price { get; set; }
@@ -21,7 +21,13 @@ namespace Kirilanatur.Server.Models {
         
         public bool Availability { get; set; }
 
-        public List<ProductImage> Images { get; set; } = new();
+        public int? CategoryId { get; set; }
+
+        // Navigation Properties
+        public ProductCategory Category { get; set; }
+
+        public List<ProductItem> ProductItems { get; set; }
+        public List<ProductImage> Images { get; set; }
 
     }
 }
