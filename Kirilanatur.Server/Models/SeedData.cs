@@ -45,19 +45,16 @@ namespace Kirilanatur.Server.Models {
             var colorOptions = colors.Select(color => new VariationOption {
                 Value = color,
                 VariationId = colorVariation.Id
-            })
-            .ToList();
+            }).ToList();
 
             context.VariationOptions.AddRange(colorOptions);
             context.SaveChanges();
 
-            var sizeOptions = new List<VariationOption>();
-            for (int size = 30; size <= 45; ++size) {
-                sizeOptions.Add(new VariationOption {
-                    Value = size.ToString(),
-                    VariationId = sizeVariation.Id
-                });
-            }
+            var sizeOptions = Enumerable.Range(30, 16)
+            .Select(size => new VariationOption {
+                Value = size.ToString(),
+                VariationId = sizeVariation.Id
+            }).ToList();
             
             context.VariationOptions.AddRange(sizeOptions);
             context.SaveChanges();
