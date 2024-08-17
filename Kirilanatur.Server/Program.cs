@@ -8,7 +8,7 @@ builder.Services.AddControllersWithViews();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContext<KirilanaturDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddCors(options => {
@@ -21,6 +21,11 @@ builder.Services.AddCors(options => {
 });
 
 var app = builder.Build();
+
+using(var scope = app.Services.CreateScope()) {
+    var services = scope.ServiceProvider;
+    SeedData.Initialise(services);
+}
 
 app.UseDefaultFiles();
 app.UseStaticFiles();

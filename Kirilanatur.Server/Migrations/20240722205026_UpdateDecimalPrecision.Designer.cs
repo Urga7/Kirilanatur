@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Kirilanatur.Server.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(KirilanaturDbContext))]
     [Migration("20240722205026_UpdateDecimalPrecision")]
     partial class UpdateDecimalPrecision
     {

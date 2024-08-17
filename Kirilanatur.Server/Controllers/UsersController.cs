@@ -8,9 +8,9 @@ namespace Kirilanatur.Server.Controllers {
     [Route("api/[controller]")]
     public class UsersController : ControllerBase {
     
-        private readonly ApplicationDbContext _dbContext;
+        private readonly KirilanaturDbContext _dbContext;
 
-        public UsersController(ApplicationDbContext dbDbContext) {
+        public UsersController(KirilanaturDbContext dbDbContext) {
             _dbContext = dbDbContext;
         }
         
