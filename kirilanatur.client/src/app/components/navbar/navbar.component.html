@@ -2,13 +2,23 @@
   <ul>
     <li>
       <a routerLink="/home" routerLinkActive="active">
-        Home
+        {{ 'navbar.home' | translate }}
       </a>
     </li>
     <li>
       <a routerLink="/dataFlow" routerLinkActive="active">
         Data Flow Testing
       </a>
+    </li>
+    <li>
+      <button (click)="switchLanguage('en')">
+        <img src="assets/svgs/uk_flag.svg" alt="English">
+      </button>
+    </li>
+    <li>
+      <button (click)="switchLanguage('sl')">
+        <img src="assets/svgs/sl_flag.svg" alt="Slovenian">
+      </button>
     </li>
   </ul>
 </nav>

@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -7,6 +7,9 @@ import { DataFlowComponent } from './components/data-flow/data-flow.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { ReactiveFormsModule } from "@angular/forms";
+import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
+import { createTranslateLoader } from "./utils/translate-loader";
+import { NgOptimizedImage } from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -17,7 +20,16 @@ import { ReactiveFormsModule } from "@angular/forms";
   ],
   imports: [
     BrowserModule, HttpClientModule,
-    AppRoutingModule, ReactiveFormsModule
+    AppRoutingModule, ReactiveFormsModule,
+    NgOptimizedImage, TranslateModule.forRoot({
+      defaultLanguage: 'sl',
+      useDefaultLang: true,
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
