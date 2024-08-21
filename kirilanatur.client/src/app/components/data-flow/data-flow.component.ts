@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+ import { Component } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
 import { Product, UserService } from "../../services/user/user.service";
 
@@ -24,16 +24,7 @@ export class DataFlowComponent {
       description: this.userForm.value.description as string,
     };
 
-    this.userService.addUser(product).subscribe({
-      next: (response: any) => {
-        alert(response.message);
-        this.userForm.reset();
-      },
-      error: (error: any) => {
-        console.error('Error adding product: ', error);
-      }
-    });
-
+    await this.userService.addUser(product);
     this.userForm.reset();
   }
 
