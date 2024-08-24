@@ -1,4 +1,4 @@
-using Kirilanatur.Server.Models;
+using Kirilanatur.Server.DbModels;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from "rxjs";
-import { ServerService } from "../server/server.service";
+import { RequestMethodType, ServerService } from "../server/server.service";
 
 export interface Product {
   name: string | null;
@@ -13,15 +13,14 @@ export interface Product {
 })
 export class UserService {
 
-  private apiUrl: string = 'https://localhost:44387/api/Users';
-  constructor(private http: HttpClient, private serverService: ServerService) { }
+  constructor(private serverService: ServerService) { }
 
   async addUser(product: Product): Promise<any> {
-    return await this.serverService.ExecuteServerFunction("Users", product, "POST");
+    return await this.serverService.ExecuteServerFunction("Users/AddProduct", product, RequestMethodType.POST);
   }
 
-  getUsers(): Observable<any> {
-    return this.http.get(`${this.apiUrl}`);
+  async getUsers(): Promise<any> {
+    return await this.serverService.ExecuteServerFunction("Users/GetProducts", {}, RequestMethodType.GET);
   }
 
 }

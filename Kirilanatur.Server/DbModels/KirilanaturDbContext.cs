@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Kirilanatur.Server.Models {
+namespace Kirilanatur.Server.DbModels {
     
     public class KirilanaturDbContext : DbContext {
 

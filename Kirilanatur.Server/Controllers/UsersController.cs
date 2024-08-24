@@ -1,4 +1,4 @@
-﻿using Kirilanatur.Server.Models;
+﻿using Kirilanatur.Server.DbModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,7 +14,7 @@ namespace Kirilanatur.Server.Controllers {
             _dbContext = dbDbContext;
         }
         
-        [HttpPost]
+        [HttpPost("AddProduct")]
         public async Task<IActionResult> AddProduct([FromBody] ProductDto productDto) {
             
             Product product = new Product {
@@ -33,7 +33,7 @@ namespace Kirilanatur.Server.Controllers {
             return Ok(new { message = "Product added successfully." });
         }
 
-        [HttpGet]
+        [HttpGet("GetProducts")]
         public async Task<IActionResult> GetProducts() {
 
             var products = await _dbContext.Products.Include(p => p.Images).ToListAsync();
@@ -44,8 +44,8 @@ namespace Kirilanatur.Server.Controllers {
     }
 
     public class ProductDto {
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string Name { get; set; } = "";
+        public string Description { get; set; } = "";
     }
     
 }

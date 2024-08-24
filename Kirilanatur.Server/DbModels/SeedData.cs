@@ -1,10 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Kirilanatur.Server.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace Kirilanatur.Server.Models {
+namespace Kirilanatur.Server.DbModels {
     
     public class SeedData {
-
-        // TODO: Add a script to clear the tables
+        
         public static void Initialise(IServiceProvider serviceProvider) {
             
             var context = new KirilanaturDbContext(serviceProvider.GetRequiredService<DbContextOptions<KirilanaturDbContext>>());
@@ -59,6 +59,17 @@ namespace Kirilanatur.Server.Models {
             context.VariationOptions.AddRange(sizeOptions);
             context.SaveChanges();
 
+        }
+        
+        public static void ClearTables(KirilanaturDbContext context) {
+            context.Products.RemoveRange(context.Products);
+            context.ProductImages.RemoveRange(context.ProductImages);
+            context.ProductCategories.RemoveRange(context.ProductCategories);
+            context.ProductConfigurations.RemoveRange(context.ProductConfigurations);
+            context.ProductItems.RemoveRange(context.ProductItems);
+            context.Variations.RemoveRange(context.Variations);
+            context.VariationOptions.RemoveRange(context.VariationOptions);
+            context.SaveChanges();
         }
         
     }

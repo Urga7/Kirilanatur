@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Kirilanatur.Server.Models {
+namespace Kirilanatur.Server.DbModels {
     
     public class ProductItem {
         
@@ -13,10 +13,10 @@ namespace Kirilanatur.Server.Models {
         public int? ProductId { get; set; }
 
         // Navigation Properties
-        public Product Product { get; set; }
+        public Product? Product { get; set; }
 
-        public List<ProductConfiguration> ProductConfigurations { get; set; }
-        
+        public List<ProductConfiguration> ProductConfigurations { get; set; } = [];
+
     }
     
 }

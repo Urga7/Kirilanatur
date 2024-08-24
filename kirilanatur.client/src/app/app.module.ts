@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { SandalsComponent } from './components/sandals/sandals.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SandalsComponent } from './components/sandals/sandals.component';
     DataFlowComponent,
     NavbarComponent,
     HomeComponent,
-    SandalsComponent
+    SandalsComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

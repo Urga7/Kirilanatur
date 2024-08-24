@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Kirilanatur.Server.Models {
+namespace Kirilanatur.Server.DbModels {
     
     public class ProductConfiguration {
 
@@ -9,9 +9,9 @@ namespace Kirilanatur.Server.Models {
         public int VariationOptionId { get; set; }
         
         // Navigation Properties
-        public ProductItem ProductItem { get; set; }
+        public ProductItem? ProductItem { get; set; }
 
-        public VariationOption VariationOption { get; set; }
+        public VariationOption? VariationOption { get; set; }
 
     }
     

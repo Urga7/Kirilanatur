@@ -29,15 +29,7 @@ export class DataFlowComponent {
   }
 
   async getUsersHandler(): Promise<void> {
-    alert("Getting users...")
-    this.userService.getUsers().subscribe({
-      next: (response: any) => {
-        this.products = response;
-      },
-      error: (error: any) => {
-        console.error('Error getting products: ', error)
-      }
-    });
+    this.products = await this.userService.getUsers();
   }
 
 }

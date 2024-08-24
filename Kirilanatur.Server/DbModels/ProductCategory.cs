@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Kirilanatur.Server.Models {
+namespace Kirilanatur.Server.DbModels {
     
     public class ProductCategory {
 
@@ -8,18 +8,18 @@ namespace Kirilanatur.Server.Models {
         public int Id { get; set; }
 
         [StringLength(100)]
-        public string CategoryName { get; set; }
+        public string CategoryName { get; set; } = "";
 
         public int? ParentCategoryId { get; set; }
         
         // Navigation Properties
         public ProductCategory? ParentCategory { get; set; }
 
-        public List<ProductCategory> ChildrenCategories { get; set; }
-        
-        public List<Product> Products { get; set; }
+        public List<ProductCategory> ChildrenCategories { get; set; } = [];
 
-        public List<Variation> Variations { get; set; }
+        public List<Product> Products { get; set; } = [];
+
+        public List<Variation> Variations { get; set; } = [];
 
     }
     

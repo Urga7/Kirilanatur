@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Kirilanatur.Server.Models {
+namespace Kirilanatur.Server.DbModels {
     
     public class VariationOption {
 
@@ -8,15 +8,15 @@ namespace Kirilanatur.Server.Models {
         public int Id { get; set; }
 
         [StringLength(100)]
-        public string Value { get; set; }
+        public string Value { get; set; } = "";
 
         public int? VariationId { get; set; }
         
         // Navigation Properties
-        public Variation Variation { get; set; }
+        public Variation? Variation { get; set; }
 
-        public List<ProductConfiguration> ProductConfigurations { get; set; }
-        
+        public List<ProductConfiguration> ProductConfigurations { get; set; } = [];
+
     }
     
 }
