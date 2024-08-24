@@ -2,6 +2,7 @@
   "navbar": {
     "home": "Domov",
     "sandals": "Sandali",
-    "testing": "Testiranje"
+    "testing": "Testiranje",
+    "admin" : "Administrator"
   }
 }

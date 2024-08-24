@@ -22,7 +22,7 @@ namespace Kirilanatur.Server.Controllers {
                 Description = productDto.Description,
                 Price = 100,
                 Discount = 0,
-                Availability = true,
+                Available = true,
                 Images = []
             };
             

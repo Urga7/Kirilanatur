@@ -1,5 +1,5 @@
 ﻿export interface ServerResponse {
-  Data: any;
-  IsError: boolean;
-  Messages: string[];
+  data: any;
+  isError: boolean;
+  messages: string[];
 }

@@ -38,10 +38,10 @@ export class ServerService {
 
     try {
       const completeResponse = await lastValueFrom(response);
-      if(completeResponse.IsError)
-        console.error("Server Error: " + completeResponse.Messages.toString());
+      if(completeResponse.isError)
+        console.error("Server Error: " + completeResponse.messages.toString());
 
-      return completeResponse;
+      return completeResponse.data;
     } catch(error) {
       console.error("Any error occured", error);
     }

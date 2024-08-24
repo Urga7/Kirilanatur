@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ControllerFunction, RequestMethodType, ServerService } from "../../services/server/server.service";
-import { Product } from "../../services/user/user.service";
+import { Product } from "../../models/DatabaseObjects";
 
 @Component({
   selector: 'app-admin',
@@ -15,6 +15,7 @@ export class AdminComponent implements OnInit {
 
   async ngOnInit() {
     this.products = await this.serverService.ExecuteServerFunction(ControllerFunction.GetProducts, {}, RequestMethodType.GET);
+    console.log(this.products);
   }
 
 }

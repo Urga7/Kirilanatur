@@ -24,6 +24,8 @@ var app = builder.Build();
 
 using(var scope = app.Services.CreateScope()) {
     var services = scope.ServiceProvider;
+    //var dbContext = services.GetRequiredService<KirilanaturDbContext>();
+    //SeedData.ClearTables(dbContext);
     SeedData.Initialise(services);
 }
 

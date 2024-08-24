@@ -58,6 +58,142 @@ namespace Kirilanatur.Server.DbModels {
             
             context.VariationOptions.AddRange(sizeOptions);
             context.SaveChanges();
+            
+            Product[] products = [
+                new Product {
+                    Name = "Sandal_142",
+                    Description = "Mrežast sandal z gumbi",
+                    Price = 10800,
+                    Discount = 0,
+                    Available = true,
+                    CategoryId = sandalCategory.Id
+                },
+                new Product {
+                    Name = "Sandal_143",
+                    Description = "Zaprt sandal z vrvico",
+                    Price = 10800,
+                    Discount = 0,
+                    Available = true,
+                    CategoryId = sandalCategory.Id
+                },
+                new Product {
+                    Name = "Sandal_144",
+                    Description = "Egipčanski sandal",
+                    Price = 10800,
+                    Discount = 10,
+                    Available = true,
+                    CategoryId = sandalCategory.Id
+                },
+                new Product {
+                    Name = "Sandal_145",
+                    Description = "Zeleno usnje",
+                    Price = 10800,
+                    Discount = 0,
+                    Available = true,
+                    CategoryId = sandalCategory.Id
+                },
+            ];
+            
+            context.Products.AddRange(products);
+            context.SaveChanges();
+
+            ProductImage[] productImages_142 = [
+                new ProductImage {
+                    ImageUrl = "assets/images/products/art-142-01.jpg",
+                    ImageDescription = "Sandal 142 default view",
+                    ProductId = products[0].Id
+                },
+                new ProductImage {
+                    ImageUrl = "assets/images/products/art-142-02.jpg",
+                    ImageDescription = "Sandal 142 side view",
+                    ProductId = products[0].Id
+                },
+                new ProductImage {
+                    ImageUrl = "assets/images/products/art-142-03.jpg",
+                    ImageDescription = "Sandal 142 example",
+                    ProductId = products[0].Id
+                },
+                new ProductImage {
+                    ImageUrl = "assets/images/products/art-142-04.jpg",
+                    ImageDescription = "Sandal 142 top view",
+                    ProductId = products[0].Id
+                },
+            ];
+            
+            ProductImage[] productImages_143 = [
+                new ProductImage {
+                    ImageUrl = "assets/images/products/art-143-01.jpg",
+                    ImageDescription = "Sandal 143 default view",
+                    ProductId = products[1].Id
+                },
+                new ProductImage {
+                    ImageUrl = "assets/images/products/art-143-02.jpg",
+                    ImageDescription = "Sandal 143 side view",
+                    ProductId = products[1].Id
+                },
+                new ProductImage {
+                    ImageUrl = "assets/images/products/art-143-03.jpg",
+                    ImageDescription = "Sandal 143 example",
+                    ProductId = products[1].Id
+                },
+                new ProductImage {
+                    ImageUrl = "assets/images/products/art-143-04.jpg",
+                    ImageDescription = "Sandal 143 top view",
+                    ProductId = products[1].Id
+                },
+            ];
+            
+            ProductImage[] productImages_144 = [
+                new ProductImage {
+                    ImageUrl = "assets/images/products/art-143-01.jpg",
+                    ImageDescription = "Sandal 144 default view",
+                    ProductId = products[2].Id
+                },
+                new ProductImage {
+                    ImageUrl = "assets/images/products/art-144-02.jpg",
+                    ImageDescription = "Sandal 144 side view",
+                    ProductId = products[2].Id
+                },
+                new ProductImage {
+                    ImageUrl = "assets/images/products/art-144-03.jpg",
+                    ImageDescription = "Sandal 144 example",
+                    ProductId = products[2].Id
+                },
+                new ProductImage {
+                    ImageUrl = "assets/images/products/art-144-04.jpg",
+                    ImageDescription = "Sandal 144 top view",
+                    ProductId = products[2].Id
+                },
+            ];
+            
+            ProductImage[] productImages_145 = [
+                new ProductImage {
+                    ImageUrl = "assets/images/products/art-145-01.jpg",
+                    ImageDescription = "Sandal 145 default view",
+                    ProductId = products[3].Id
+                },
+                new ProductImage {
+                    ImageUrl = "assets/images/products/art-145-02.jpg",
+                    ImageDescription = "Sandal 145 side view",
+                    ProductId = products[3].Id
+                },
+                new ProductImage {
+                    ImageUrl = "assets/images/products/art-145-03.jpg",
+                    ImageDescription = "Sandal 145 example",
+                    ProductId = products[3].Id
+                },
+                new ProductImage {
+                    ImageUrl = "assets/images/products/art-145-04.jpg",
+                    ImageDescription = "Sandal 145 top view",
+                    ProductId = products[3].Id
+                },
+            ];
+            
+            context.ProductImages.AddRange(productImages_142);
+            context.ProductImages.AddRange(productImages_143);
+            context.ProductImages.AddRange(productImages_144);
+            context.ProductImages.AddRange(productImages_145);
+            context.SaveChanges();
 
         }
         

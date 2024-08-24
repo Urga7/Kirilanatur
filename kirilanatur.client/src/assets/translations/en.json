@@ -2,6 +2,7 @@
   "navbar": {
     "home": "Home",
     "sandals": "Sandals",
-    "testing": "Testing"
+    "testing": "Testing",
+    "admin" : "Administrator"
   }
 }

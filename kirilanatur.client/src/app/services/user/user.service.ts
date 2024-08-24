@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from "rxjs";
 import { RequestMethodType, ServerService } from "../server/server.service";
 
-export interface Product {
+export interface TmpProduct {
   name: string | null;
   description: string | null;
 }
@@ -15,7 +15,7 @@ export class UserService {
 
   constructor(private serverService: ServerService) { }
 
-  async addUser(product: Product): Promise<any> {
+  async addUser(product: TmpProduct): Promise<any> {
     return await this.serverService.ExecuteServerFunction("Users/AddProduct", product, RequestMethodType.POST);
   }
 

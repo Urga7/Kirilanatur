@@ -13,13 +13,12 @@ namespace Kirilanatur.Server.DbModels {
         [StringLength(1000)]
         public string Description { get; set; } = "";
         
-        [Range(0, double.MaxValue)]
-        public decimal Price { get; set; }
-        
+        public int Price { get; set; }
+
         [Range(0, 100)]
         public int Discount { get; set; }
-        
-        public bool Availability { get; set; }
+
+        public bool Available { get; set; } = true;
 
         public int? CategoryId { get; set; }
 

@@ -1,6 +1,6 @@
  import { Component } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
-import { Product, UserService } from "../../services/user/user.service";
+import { TmpProduct, UserService } from "../../services/user/user.service";
 
 @Component({
   selector: 'app-data-flow',
@@ -19,7 +19,7 @@ export class DataFlowComponent {
   constructor(private userService: UserService) {}
 
   async addUserHandler(): Promise<void> {
-    const product: Product = {
+    const product: TmpProduct = {
       name: this.userForm.value.name as string,
       description: this.userForm.value.description as string,
     };
