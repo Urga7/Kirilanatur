@@ -1,4 +1,5 @@
 ﻿using Kirilanatur.Server.DbModels;
+using Kirilanatur.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -41,11 +42,6 @@ namespace Kirilanatur.Server.Controllers {
 
         }
         
-    }
-
-    public class ProductDto {
-        public string Name { get; set; } = "";
-        public string Description { get; set; } = "";
     }
     
 }

@@ -19,7 +19,23 @@ namespace Kirilanatur.Server.Controllers {
         [HttpGet("GetProducts")]
         public async Task<ServerResponse> GetProducts() {
             try {
-                List<Product> products = await _dbContext.Products.ToListAsync();
+                var products = await _dbContext.Products
+                .Include(p => p.Images)
+                .Select(p => new ProductDto {
+                    Id = p.Id,
+                    Name = p.Name,
+                    Description = p.Description,
+                    Price = p.Price,
+                    Discount = p.Discount,
+                    Available = p.Available,
+                    Images = p.Images.Select(img => new ProductImageDto {
+                        Id = img.Id,
+                        ImageUrl = img.ImageUrl,
+                        ImageDescription = img.ImageDescription
+                    }).ToList()
+                })
+                .ToListAsync();
+
                 return new ServerResponse {
                     Data = products
                 };
@@ -27,6 +43,7 @@ namespace Kirilanatur.Server.Controllers {
                 return ErrorResponse(ex);
             }
         }
+
 
         [HttpPost("AddProduct")]
         public async Task<ServerResponse> AddProduct([FromBody] Product product) {
