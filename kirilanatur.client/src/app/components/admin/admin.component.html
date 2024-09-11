@@ -11,6 +11,9 @@
         <td>
           {{product.price}}
         </td>
+        <td>
+          <img ngSrc="{{product.images[0].imageUrl}}" alt="{{product.images[0].imageDescription}}}" height="150" width="150" >
+        </td>
       </tr>
     }
   </table>
