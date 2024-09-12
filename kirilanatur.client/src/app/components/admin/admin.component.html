@@ -12,8 +12,18 @@
           {{product.price}}
         </td>
         <td>
-          <img ngSrc="{{product.images[0].imageUrl}}" alt="{{product.images[0].imageDescription}}}" height="150" width="150" >
+          <img ngSrc="{{product.images[0].imageUrl}}" alt="{{product.images[0].imageDescription}}}" height="150" width="150">
         </td>
+        @for(variation of product.category.variations; track variation.id){
+          <td>
+            <label for="variation_{{variation.id}}">{{variation.name}}</label>
+            <select name="{{variation.name}}" id="variation_{{variation.id}}">
+              @for(option of variation.options; track option.id) {
+                <option value="{{option.value}}">{{option.value}}</option>
+              }
+            </select>
+          </td>
+        }
       </tr>
     }
   </table>

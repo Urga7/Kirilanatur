@@ -21,6 +21,9 @@ namespace Kirilanatur.Server.Controllers {
             try {
                 var products = await _dbContext.Products
                 .Include(p => p.Images)
+                .Include(p => p.Category)
+                .ThenInclude(c => c!.Variations)
+                .ThenInclude(v => v.Options)
                 .Select(p => new ProductDto {
                     Id = p.Id,
                     Name = p.Name,
@@ -32,7 +35,19 @@ namespace Kirilanatur.Server.Controllers {
                         Id = img.Id,
                         ImageUrl = img.ImageUrl,
                         ImageDescription = img.ImageDescription
-                    }).ToList()
+                    }).ToList(),
+                    Category = p.Category != null ? new ProductCategoryDto {
+                        Id = p.Category.Id,
+                        Name = p.Category.CategoryName,
+                        Variations = p.Category.Variations.Select(v => new VariationDto {
+                            Id = v.Id,
+                            Name = v.Name,
+                            Options = v.Options.Select(vo => new VariationOptionDto {
+                                Id = vo.Id,
+                                Value = vo.Value
+                            }).ToList()
+                        }).ToList()
+                    } : null
                 })
                 .ToListAsync();
 

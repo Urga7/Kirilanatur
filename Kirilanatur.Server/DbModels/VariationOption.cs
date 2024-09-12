@@ -9,6 +9,8 @@ namespace Kirilanatur.Server.DbModels {
 
         [StringLength(100)]
         public string Value { get; set; } = "";
+        
+        //TODO: Add option label
 
         public int? VariationId { get; set; }
         
