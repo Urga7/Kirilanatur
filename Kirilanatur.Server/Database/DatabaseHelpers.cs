@@ -58,7 +58,19 @@ namespace Kirilanatur.Server.Database {
                 VariationId = colorVariation.Id
             };
             
-            context.VariationTranslations.AddRange(colorVariationEn, colorVariationSl);
+            var sizeVariationEn = new VariationTranslation {
+                LanguageCode = "en",
+                Name = "Size",
+                VariationId = sizeVariation.Id
+            };
+            
+            var sizeVariationSl = new VariationTranslation {
+                LanguageCode = "sl",
+                Name = "Velikost",
+                VariationId = sizeVariation.Id
+            };
+            
+            context.VariationTranslations.AddRange(colorVariationEn, colorVariationSl, sizeVariationEn, sizeVariationSl);
             
             //////////////////////////////////////////////////////////////////////////////////
             //////////////////////////////////////////////////////////////////////////////////
