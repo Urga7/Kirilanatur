@@ -1,7 +1,7 @@
 using Kirilanatur.Server.Database;
 using Microsoft.EntityFrameworkCore;
 
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -20,10 +20,10 @@ builder.Services.AddCors(options => {
     .AllowAnyHeader());
 });
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 
-using(var scope = app.Services.CreateScope()) {
-    var services = scope.ServiceProvider;
+using(IServiceScope scope = app.Services.CreateScope()) {
+    IServiceProvider services = scope.ServiceProvider;
     // var dbContext = services.GetRequiredService<KirilanaturDbContext>();
     // DatabaseHelpers.ClearTables(dbContext);
     DatabaseHelpers.Initialise(services);
