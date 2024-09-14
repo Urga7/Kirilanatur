@@ -15,12 +15,12 @@ export class UserService {
 
   constructor(private serverService: ServerService) { }
 
-  async addUser(product: TmpProduct): Promise<any> {
+  /*async addUser(product: TmpProduct): Promise<any> {
     return await this.serverService.ExecuteServerFunction("Users/AddProduct", product, RequestMethodType.POST);
   }
 
   async getUsers(): Promise<any> {
     return await this.serverService.ExecuteServerFunction("Users/GetProducts", {}, RequestMethodType.GET);
-  }
+  }*/
 
 }

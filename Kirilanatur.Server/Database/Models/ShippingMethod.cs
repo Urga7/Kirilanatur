@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Kirilanatur.Server.Shared;
 
-namespace Kirilanatur.Server.DbModels {
+namespace Kirilanatur.Server.Database.Models {
     
     public class ShippingMethod {
         
@@ -10,6 +10,9 @@ namespace Kirilanatur.Server.DbModels {
         
         public ShippingMethodOption ShippingMethodOption { get; set; }
         
+        // Navigation Properties
+        public List<ShippingMethodTranslation> Translations { get; set; } = [];
+
     }
     
 }

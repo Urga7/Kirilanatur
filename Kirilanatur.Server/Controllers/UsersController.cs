@@ -1,4 +1,4 @@
-﻿using Kirilanatur.Server.DbModels;
+﻿using Kirilanatur.Server.Database;
 using Kirilanatur.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,31 +15,9 @@ namespace Kirilanatur.Server.Controllers {
             _dbContext = dbDbContext;
         }
         
-        [HttpPost("AddProduct")]
-        public async Task<IActionResult> AddProduct([FromBody] ProductDto productDto) {
-            
-            Product product = new Product {
-                Name = productDto.Name,
-                Description = productDto.Description,
-                Price = 100,
-                Discount = 0,
-                Available = true,
-                Images = []
-            };
-            
-            _dbContext.Products.Add(product);
-            await _dbContext.SaveChangesAsync();
-            
-            // TODO: Return in unified form
-            return Ok(new { message = "Product added successfully." });
-        }
-
-        [HttpGet("GetProducts")]
-        public async Task<IActionResult> GetProducts() {
-
-            var products = await _dbContext.Products.Include(p => p.Images).ToListAsync();
-            return Ok(products);
-
+        [HttpPost("AddUser")]
+        public async Task<ServerResponse> AddUser() {
+            return new ServerResponse();
         }
         
     }

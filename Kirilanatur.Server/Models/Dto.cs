@@ -33,5 +33,9 @@
         public int Id { get; set; }
         public string Value { get; set; } = "";
     }
+    
+    public class LanguageChangeRequestDto {
+        public string Language { get; set; } = "sl";
+    }
 
 }

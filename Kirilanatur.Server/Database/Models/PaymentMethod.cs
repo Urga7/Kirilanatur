@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Kirilanatur.Server.Shared;
 
-namespace Kirilanatur.Server.DbModels {
+namespace Kirilanatur.Server.Database.Models {
     
     public class PaymentMethod {
         
@@ -10,6 +10,9 @@ namespace Kirilanatur.Server.DbModels {
         
         public PaymentMethodOption PaymentMethodOption { get; set; }
         
+        // Navigation Properties
+        public List<PaymentMethodTranslation> Translations { get; set; } = [];
+
     }
     
 }

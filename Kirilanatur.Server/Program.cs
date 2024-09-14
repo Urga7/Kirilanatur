@@ -1,4 +1,4 @@
-using Kirilanatur.Server.DbModels;
+using Kirilanatur.Server.Database;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,9 +24,9 @@ var app = builder.Build();
 
 using(var scope = app.Services.CreateScope()) {
     var services = scope.ServiceProvider;
-    //var dbContext = services.GetRequiredService<KirilanaturDbContext>();
-    //SeedData.ClearTables(dbContext);
-    SeedData.Initialise(services);
+    // var dbContext = services.GetRequiredService<KirilanaturDbContext>();
+    // DatabaseHelpers.ClearTables(dbContext);
+    DatabaseHelpers.Initialise(services);
 }
 
 app.UseDefaultFiles();

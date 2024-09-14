@@ -21,15 +21,15 @@ export class ServerService {
   private serverUrl: string = 'https://localhost:44387/api/';
   constructor(private httpClient: HttpClient) { }
 
-  async ExecuteServerFunction(functionName: string, parameters: any = null, method: RequestMethodType = RequestMethodType.GET): Promise<any> {
+  async ExecuteServerFunction(controllerFunction: ControllerFunction, parameters: any = null, method: RequestMethodType = RequestMethodType.GET): Promise<any> {
     let response: Observable<ServerResponse>;
     switch(method) {
       case RequestMethodType.GET:
-        response = this.httpClient.get<ServerResponse>(`${this.serverUrl}${functionName}`);
+        response = this.httpClient.get<ServerResponse>(`${this.serverUrl}${controllerFunction}`);
         break;
 
       case RequestMethodType.POST:
-        response = this.httpClient.post<ServerResponse>(`${this.serverUrl}${functionName}`, parameters);
+        response = this.httpClient.post<ServerResponse>(`${this.serverUrl}${controllerFunction}`, parameters);
         break;
 
       default:

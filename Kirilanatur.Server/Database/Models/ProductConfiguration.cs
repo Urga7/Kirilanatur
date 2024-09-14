@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Kirilanatur.Server.DbModels {
+﻿namespace Kirilanatur.Server.Database.Models {
     
     public class ProductConfiguration {
 

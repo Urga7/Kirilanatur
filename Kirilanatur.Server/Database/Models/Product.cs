@@ -1,17 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Kirilanatur.Server.DbModels { 
+namespace Kirilanatur.Server.Database.Models { 
     
     public class Product {
         
         [Key]
         public int Id { get; set; }
-
-        [StringLength(100)]
-        public string Name { get; set; } = "";
-
-        [StringLength(1000)]
-        public string Description { get; set; } = "";
         
         public int Price { get; set; }
 
@@ -27,6 +21,8 @@ namespace Kirilanatur.Server.DbModels {
 
         public List<ProductItem> ProductItems { get; set; } = [];
         public List<ProductImage> Images { get; set; } = [];
+        
+        public List<ProductTranslation> Translations { get; set; } = [];
 
     }
 }

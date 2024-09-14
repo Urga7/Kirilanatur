@@ -1,16 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Kirilanatur.Server.DbModels {
+namespace Kirilanatur.Server.Database.Models {
     
     public class VariationOption {
 
         [Key]
         public int Id { get; set; }
-
-        [StringLength(100)]
-        public string Value { get; set; } = "";
-        
-        //TODO: Add option label
 
         public int? VariationId { get; set; }
         
@@ -18,6 +13,8 @@ namespace Kirilanatur.Server.DbModels {
         public Variation? Variation { get; set; }
 
         public List<ProductConfiguration> ProductConfigurations { get; set; } = [];
+        
+        public List<VariationOptionTranslation> Translations { get; set; } = [];
 
     }
     

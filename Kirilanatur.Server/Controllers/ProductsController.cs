@@ -1,4 +1,5 @@
-﻿using Kirilanatur.Server.DbModels;
+﻿using Kirilanatur.Server.Database;
+using Kirilanatur.Server.Database.Models;
 using Kirilanatur.Server.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +9,7 @@ namespace Kirilanatur.Server.Controllers {
     
     [ApiController]
     [Route("api/[controller]")]
-    public class ProductsController : Controller {
+    public class ProductsController : ControllerBase {
         
         private readonly KirilanaturDbContext _dbContext;
 
@@ -16,50 +17,59 @@ namespace Kirilanatur.Server.Controllers {
             _dbContext = dbContext;
         }
         
-        [HttpGet("GetProducts")]
-        public async Task<ServerResponse> GetProducts() {
+        [HttpPost("GetProducts")]
+        public async Task<ServerResponse> GetProducts([FromBody] LanguageChangeRequestDto languageChangeRequestDto) {
             try {
-                var products = await _dbContext.Products
-                .Include(p => p.Images)
-                .Include(p => p.Category)
-                .ThenInclude(c => c!.Variations)
-                .ThenInclude(v => v.Options)
-                .Select(p => new ProductDto {
-                    Id = p.Id,
-                    Name = p.Name,
-                    Description = p.Description,
-                    Price = p.Price,
-                    Discount = p.Discount,
-                    Available = p.Available,
-                    Images = p.Images.Select(img => new ProductImageDto {
-                        Id = img.Id,
-                        ImageUrl = img.ImageUrl,
-                        ImageDescription = img.ImageDescription
-                    }).ToList(),
-                    Category = p.Category != null ? new ProductCategoryDto {
-                        Id = p.Category.Id,
-                        Name = p.Category.CategoryName,
-                        Variations = p.Category.Variations.Select(v => new VariationDto {
-                            Id = v.Id,
-                            Name = v.Name,
-                            Options = v.Options.Select(vo => new VariationOptionDto {
-                                Id = vo.Id,
-                                Value = vo.Value
+                string language = languageChangeRequestDto.Language;
+                List<ProductDto> products = await _dbContext.Products
+                    .Include(p => p.Images)
+                    .Include(p => p.Translations)
+                    .Include(p => p.Category)
+                        .ThenInclude(c => c!.Translations)
+                    .Include(p => p.Category)
+                        .ThenInclude(c => c!.Variations)
+                        .ThenInclude(v => v.Translations)
+                    .Include(p => p.Category)
+                        .ThenInclude(c => c!.Variations)
+                        .ThenInclude(v => v.Options)
+                        .ThenInclude(vo => vo.Translations)
+                    .Select(p => new ProductDto {
+                        Id = p.Id,
+                        Name = p.Translations.FirstOrDefault(t => t.LanguageCode == language)!.Name,
+                        Description = p.Translations.FirstOrDefault(t => t.LanguageCode == language)!.Description,
+                        Price = p.Price,
+                        Discount = p.Discount,
+                        Available = p.Available,
+                        Images = p.Images.Select(img => new ProductImageDto {
+                            Id = img.Id,
+                            ImageUrl = img.ImageUrl,
+                            ImageDescription = img.Translations.FirstOrDefault(t => t.LanguageCode == language)!.Description,
+                        }).ToList(),
+                        Category = new ProductCategoryDto {
+                            Id = p.Category!.Id,
+                            Name = p.Category.Translations.FirstOrDefault(ct => ct.LanguageCode == language)!.Name,
+                            Variations = p.Category.Variations.Select(v => new VariationDto {
+                                Id = v.Id,
+                                Name = v.Translations.FirstOrDefault(vt => vt.LanguageCode == language)!.Name,
+                                Options = v.Options.Select(vo => new VariationOptionDto {
+                                    Id = vo.Id,
+                                    Value = vo.Translations.FirstOrDefault(vot => vot.LanguageCode == language)!.Value
+                                }).ToList()
                             }).ToList()
-                        }).ToList()
-                    } : null
-                })
-                .ToListAsync();
+                        }
+                    })
+                    .ToListAsync();
 
                 return new ServerResponse {
                     Data = products
                 };
+                
             } catch (Exception ex) {
                 return ErrorResponse(ex);
             }
         }
 
-
+        
         [HttpPost("AddProduct")]
         public async Task<ServerResponse> AddProduct([FromBody] Product product) {
             try

@@ -24,12 +24,12 @@ export class DataFlowComponent {
       description: this.userForm.value.description as string,
     };
 
-    await this.userService.addUser(product);
+    //await this.userService.addUser(product);
     this.userForm.reset();
   }
 
   async getUsersHandler(): Promise<void> {
-    this.products = await this.userService.getUsers();
+    //this.products = await this.userService.getUsers();
   }
 
 }
