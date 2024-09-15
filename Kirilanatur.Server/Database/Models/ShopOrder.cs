@@ -11,7 +11,7 @@ namespace Kirilanatur.Server.Database.Models {
 
         public int OrderTotal { get; set; }
 
-        public int UserId { get; set; }
+        public string UserId { get; set; } = "";
 
         public int StatusId { get; set; }
         
@@ -28,8 +28,8 @@ namespace Kirilanatur.Server.Database.Models {
 
         public ShippingMethod? ShippingMethod { get; set; }
 
-        public List<OrderLine> OrderLines { get; set; }
-        
+        public List<OrderLine> OrderLines { get; set; } = [];
+
     }
     
 }

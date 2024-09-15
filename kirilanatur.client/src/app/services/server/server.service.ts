@@ -6,6 +6,7 @@ import { lastValueFrom, Observable } from "rxjs";
 export enum ControllerFunction {
   GetProducts = "Products/GetProducts",
   AddProduct = "Products/AddProduct",
+  AddUser = "Users/AddUser",
 }
 
 export enum RequestMethodType {

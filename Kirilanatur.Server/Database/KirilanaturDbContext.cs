@@ -1,9 +1,10 @@
 ﻿using Kirilanatur.Server.Database.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Kirilanatur.Server.Database {
     
-    public class KirilanaturDbContext : DbContext {
+    public class KirilanaturDbContext : IdentityDbContext<User> {
 
         public KirilanaturDbContext(DbContextOptions<KirilanaturDbContext> options) : base(options) { }
         

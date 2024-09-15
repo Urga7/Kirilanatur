@@ -1,5 +1,6 @@
 ﻿using Kirilanatur.Server.Database;
 using Kirilanatur.Server.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,9 +16,11 @@ namespace Kirilanatur.Server.Controllers {
             _dbContext = dbDbContext;
         }
         
-        [HttpPost("AddUser")]
+        [HttpPost("AddUser"), Authorize]
         public async Task<ServerResponse> AddUser() {
-            return new ServerResponse();
+            return new ServerResponse {
+                Data = "Sucessfully added user",
+            };
         }
         
     }

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ControllerFunction, RequestMethodType, ServerService } from "../../services/server/server.service";
 import { Product } from "../../models/DatabaseObjects";
 import { Subscription } from 'rxjs';
@@ -26,6 +26,11 @@ export class AdminComponent implements OnInit, OnDestroy {
     if (this.languageChangeSubscription) {
       this.languageChangeSubscription.unsubscribe();
     }
+  }
+
+  async testMethod() {
+    const response = await this.serverService.ExecuteServerFunction(ControllerFunction.AddUser, {}, RequestMethodType.POST);
+    console.log(response);
   }
 
 }
