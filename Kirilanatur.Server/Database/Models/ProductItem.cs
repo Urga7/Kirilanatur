@@ -17,6 +17,8 @@ namespace Kirilanatur.Server.Database.Models {
 
         public List<ProductConfiguration> ProductConfigurations { get; set; } = [];
 
+        public List<ShoppingCartItem> ShoppingCartItems { get; set; } = [];
+
     }
     
 }
