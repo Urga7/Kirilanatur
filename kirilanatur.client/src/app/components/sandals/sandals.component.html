@@ -1,1 +1,30 @@
-
+@if(this.products.length > 0) {
+  <table>
+    @for(product of products; track product.id) {
+      <tr>
+        <td>
+          {{product.name}}
+        </td>
+        <td>
+          {{product.description}}
+        </td>
+        <td>
+          {{product.price}}
+        </td>
+        <td>
+          <img ngSrc="{{product.images[0].imageUrl}}" alt="{{product.images[0].imageDescription}}}" height="150" width="150">
+        </td>
+        @for(variation of product.category.variations; track variation.id){
+          <td>
+            <label for="variation_{{variation.id}}">{{variation.name}}</label>
+            <select name="{{variation.name}}" id="variation_{{variation.id}}">
+              @for(option of variation.options; track option.id) {
+                <option value="{{option.value}}">{{option.value}}</option>
+              }
+            </select>
+          </td>
+        }
+      </tr>
+    }
+  </table>
+}

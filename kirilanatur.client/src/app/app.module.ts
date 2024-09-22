@@ -7,13 +7,12 @@ import { ReactiveFormsModule } from "@angular/forms";
 import { TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { createTranslateLoader } from "./utils/translate-loader";
 import { NgOptimizedImage } from "@angular/common";
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { SandalsComponent } from './components/sandals/sandals.component';
 import { AdminComponent } from './components/admin/admin.component';
-
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,8 @@ import { AdminComponent } from './components/admin/admin.component';
     NavbarComponent,
     HomeComponent,
     SandalsComponent,
-    AdminComponent
+    AdminComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,

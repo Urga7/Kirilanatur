@@ -4,12 +4,14 @@ import { DataFlowComponent } from "./components/data-flow/data-flow.component";
 import { HomeComponent } from "./components/home/home.component";
 import { SandalsComponent } from "./components/sandals/sandals.component";
 import { AdminComponent } from "./components/admin/admin.component";
+import { RegisterComponent } from "./components/register/register.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'dataFlow', component: DataFlowComponent },
   { path: 'sandals', component: SandalsComponent },
   { path: 'admin', component: AdminComponent },
+  { path: 'register', component: RegisterComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home'},
 ];

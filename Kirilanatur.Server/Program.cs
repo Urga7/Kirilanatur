@@ -1,7 +1,6 @@
 using Kirilanatur.Server.Database;
 using Kirilanatur.Server.Database.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);

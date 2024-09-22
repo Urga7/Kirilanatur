@@ -3,6 +3,7 @@
     "home": "Home",
     "sandals": "Sandals",
     "testing": "Testing",
-    "admin" : "Administrator"
+    "admin" : "Admin",
+    "register": "Register"
   }
 }
