@@ -1,0 +1,12 @@
+.register-component {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  img {
+    padding: 0;
+    margin-left: -800px;
+    height: 100vh;
+    aspect-ratio: 1/1;
+  }
+}
