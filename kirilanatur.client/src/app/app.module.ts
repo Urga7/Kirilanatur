@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,31 +15,25 @@ import { AdminComponent } from './components/admin/admin.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RegistrationFormComponent } from './components/forms/registration-form/registration-form.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    DataFlowComponent,
-    NavbarComponent,
-    HomeComponent,
-    SandalsComponent,
-    AdminComponent,
-    RegisterComponent,
-    RegistrationFormComponent
-  ],
-  imports: [
-    BrowserModule, HttpClientModule,
-    AppRoutingModule, ReactiveFormsModule,
-    NgOptimizedImage, TranslateModule.forRoot({
-      defaultLanguage: 'sl',
-      useDefaultLang: true,
-      loader: {
-        provide: TranslateLoader,
-        useFactory: createTranslateLoader,
-        deps: [HttpClient]
-      }
-    })
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        DataFlowComponent,
+        NavbarComponent,
+        HomeComponent,
+        SandalsComponent,
+        AdminComponent,
+        RegisterComponent,
+        RegistrationFormComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule, ReactiveFormsModule,
+        NgOptimizedImage, TranslateModule.forRoot({
+            defaultLanguage: 'sl',
+            useDefaultLang: true,
+            loader: {
+                provide: TranslateLoader,
+                useFactory: createTranslateLoader,
+                deps: [HttpClient]
+            }
+        })], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
