@@ -1,4 +1,24 @@
 <div class="register-component">
   <img src="assets/images/register-hero-banner-leather.jpg" alt="leather-hero-banner">
-  <app-registration-form></app-registration-form>
+  <form [formGroup]="registrationForm" class="registration-form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="name">Ime:</label>
+      <input type="text" id="name" formControlName="name">
+    </div>
+    <div class="form-group">
+      <label for="surname">Priimek:</label>
+      <input type="text" id="surname" formControlName="surname">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" id="email" formControlName="email">
+    </div>
+    <div class="form-group">
+      <label for="password">Geslo:</label>
+      <input type="text" id="password" formControlName="password">
+    </div>
+    <div class="form-group">
+      <button type="submit">Register</button>
+    </div>
+  </form>
 </div>

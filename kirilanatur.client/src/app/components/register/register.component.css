@@ -4,9 +4,31 @@
   align-items: center;
 
   img {
-    padding: 0;
-    margin-left: -800px;
+    margin-left: -1500px;
     height: 100vh;
-    aspect-ratio: 1/1;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin: auto;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+
+      label {
+        width: 100%;
+        text-align: left;
+      }
+
+      input {
+        margin: 0;
+        width: 300px;
+      }
+    }
   }
 }
