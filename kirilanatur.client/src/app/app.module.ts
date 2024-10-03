@@ -13,7 +13,6 @@ import { HomeComponent } from './components/home/home.component';
 import { SandalsComponent } from './components/sandals/sandals.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { RegisterComponent } from './components/register/register.component';
-import { RegistrationFormComponent } from './components/forms/registration-form/registration-form.component';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -23,7 +22,6 @@ import { RegistrationFormComponent } from './components/forms/registration-form/
         SandalsComponent,
         AdminComponent,
         RegisterComponent,
-        RegistrationFormComponent
     ],
     bootstrap: [AppComponent], imports: [BrowserModule,
         AppRoutingModule, ReactiveFormsModule,
