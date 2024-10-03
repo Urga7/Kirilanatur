@@ -10,8 +10,7 @@ export class AdminComponent {
   constructor(private serverService: ServerService) {}
 
   async testMethod() {
-    const response = await this.serverService.ExecuteServerFunction(ControllerFunction.AddUser, {}, RequestMethodType.POST);
-    console.log(response);
+
   }
 
 }

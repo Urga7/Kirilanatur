@@ -1,8 +1,9 @@
-  import { Component, OnInit } from '@angular/core';
-  import { FormControl, FormGroup } from '@angular/forms';
-  import { RegistrationForm } from "../../models/RegistrationForm.model";
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { RegistrationForm } from "../../models/RegistrationForm.model";
+import { ControllerFunction, RequestMethodType, ServerService } from "../../services/server/server.service";
 
-  @Component({
+@Component({
     selector: 'app-register',
     templateUrl: './register.component.html',
     styleUrl: './register.component.css'
@@ -15,11 +16,13 @@
       password: new FormControl(''),
     });
 
+    constructor(private serverService: ServerService) { }
+
     ngOnInit() {
 
     }
 
-    onSubmit() {
+    async onSubmit() {
       const form: RegistrationForm = {
         name: this.registrationForm.value.name ?? "",
         surname: this.registrationForm.value.surname ?? "",
@@ -27,6 +30,7 @@
         password: this.registrationForm.value.password ?? "",
       };
 
-      console.log(form);
+      const response = await this.serverService.ExecuteServerFunction(ControllerFunction.RegisterUser, form, RequestMethodType.POST);
+      console.log(response);
     }
   }
