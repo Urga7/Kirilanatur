@@ -20,7 +20,7 @@ namespace Kirilanatur.Server.Database.Models {
         public int PaymentMethodId { get; set; }
         
         // Navigation properties
-        public User? User { get; set; }
+        public KirilanaturUser? User { get; set; }
 
         public OrderStatus? OrderStatus { get; set; }
 

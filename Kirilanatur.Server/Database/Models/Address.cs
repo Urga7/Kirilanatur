@@ -24,6 +24,8 @@ namespace Kirilanatur.Server.Database.Models {
         // Navigation Properties
         public Country? Country { get; set; }
 
+        public List<KirilanaturUser> Users { get; set; } = [];
+
     }
     
 }

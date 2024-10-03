@@ -12,7 +12,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddAuthorization();
 builder.Services.AddAuthentication().AddCookie(IdentityConstants.ApplicationScheme);
 
-builder.Services.AddIdentityCore<User>()
+builder.Services.AddIdentityCore<KirilanaturUser>()
     .AddEntityFrameworkStores<KirilanaturDbContext>()
     .AddApiEndpoints();
 
@@ -43,7 +43,7 @@ if (app.Environment.IsDevelopment()) {
 }
 
 app.UseHttpsRedirection();
-app.MapIdentityApi<User>();
+app.MapIdentityApi<KirilanaturUser>();
 app.UseCors("AllowAllOrigins");
 app.MapControllers();
 app.MapFallbackToFile("/index.html");

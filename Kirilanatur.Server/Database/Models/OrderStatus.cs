@@ -12,6 +12,8 @@ namespace Kirilanatur.Server.Database.Models {
         
         // Navigation Properties
         public List<OrderStatusTranslation> Translations { get; set; } = [];
+        
+        public List<ShopOrder> ShopOrders { get; set; } = [];
 
     }
     

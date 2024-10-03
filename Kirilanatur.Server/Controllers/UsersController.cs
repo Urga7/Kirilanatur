@@ -22,7 +22,14 @@ namespace Kirilanatur.Server.Controllers {
                 Data = "Sucessfully added user",
             };
         }
-        
+
+        [HttpPost("Register")]
+        public async Task<ServerResponse> Register() {
+            return new ServerResponse {
+                Data = "Sucessfully registered user",
+            };
+        }
+
     }
     
 }

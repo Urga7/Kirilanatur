@@ -10,6 +10,8 @@ namespace Kirilanatur.Server.Database.Models {
         // Navigation Properties
         public List<CountryTranslation> Translations { get; set; } = [];
 
+        public List<Address> Addresses { get; set; } = [];
+
     }
     
 }

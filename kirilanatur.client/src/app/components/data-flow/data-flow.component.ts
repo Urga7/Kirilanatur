@@ -1,4 +1,4 @@
- import { Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
 import { TmpProduct, UserService } from "../../services/user/user.service";
 
