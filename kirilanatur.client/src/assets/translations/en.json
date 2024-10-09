@@ -4,6 +4,7 @@
     "sandals": "Sandals",
     "testing": "Testing",
     "admin" : "Admin",
-    "register": "Register"
+    "register": "Register",
+    "login": "Login"
   }
 }

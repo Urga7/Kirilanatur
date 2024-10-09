@@ -12,26 +12,31 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { SandalsComponent } from './components/sandals/sandals.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { RegisterComponent } from './components/register/register.component';
+import { RegisterComponent } from './components/authentication/register/register.component';
+import { LoginComponent } from './components/authentication/login/login.component';
 
-@NgModule({ declarations: [
-        AppComponent,
-        DataFlowComponent,
-        NavbarComponent,
-        HomeComponent,
-        SandalsComponent,
-        AdminComponent,
-        RegisterComponent,
-    ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
-        AppRoutingModule, ReactiveFormsModule,
-        NgOptimizedImage, TranslateModule.forRoot({
-            defaultLanguage: 'sl',
-            useDefaultLang: true,
-            loader: {
-                provide: TranslateLoader,
-                useFactory: createTranslateLoader,
-                deps: [HttpClient]
-            }
-        })], providers: [provideHttpClient(withInterceptorsFromDi())] })
+@NgModule({
+  declarations: [
+    AppComponent,
+    DataFlowComponent,
+    NavbarComponent,
+    HomeComponent,
+    SandalsComponent,
+    AdminComponent,
+    RegisterComponent,
+    LoginComponent,
+  ],
+  bootstrap: [AppComponent], imports: [BrowserModule,
+    AppRoutingModule, ReactiveFormsModule,
+    NgOptimizedImage, TranslateModule.forRoot({
+      defaultLanguage: 'sl',
+      useDefaultLang: true,
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient]
+      }
+    })], providers: [provideHttpClient(withInterceptorsFromDi())]
+})
+
 export class AppModule { }

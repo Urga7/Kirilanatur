@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Product } from "../../models/DatabaseObjects";
+import { Product } from "../../models/database-objects";
 import { Subscription } from 'rxjs';
 import { ControllerFunction, RequestMethodType, ServerService } from "../../services/server/server.service";
 import { TranslationService } from "../../services/translation/translation.service";

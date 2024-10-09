@@ -38,10 +38,15 @@
         public string Language { get; set; } = "sl";
     }
 
-    public class UserDto {
+    public class RegisterRequestDto {
         public string Name { get; set; } = "";
         public string Surname { get; set; } = "";
         public string Email { get; set; } = "";
+        public string Password { get; set; } = "";
+    }
+
+    public class LoginRequestDto {
+        public string Username { get; set; } = "";
         public string Password { get; set; } = "";
     }
 
