@@ -1,4 +1,4 @@
-import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
@@ -14,6 +14,7 @@ import { SandalsComponent } from './components/sandals/sandals.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { RegisterComponent } from './components/authentication/register/register.component';
 import { LoginComponent } from './components/authentication/login/login.component';
+import { AuthInterceptorService } from "./services/interceptors/auth-interceptor/auth-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,14 @@ import { LoginComponent } from './components/authentication/login/login.componen
       }
     })
   ],
-  providers: [provideHttpClient(withInterceptorsFromDi())]
+  providers: [
+    provideHttpClient(withInterceptorsFromDi()),
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
+  ]
 })
 
 export class AppModule { }

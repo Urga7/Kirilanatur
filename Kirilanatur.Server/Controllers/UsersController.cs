@@ -40,9 +40,10 @@ namespace Kirilanatur.Server.Controllers {
             };
         }
         
-        [HttpPost("Login")]
-        public async Task<ServerResponse> Login([FromBody] LoginRequestDto loginRequest) {
-            return new ServerResponse();
+        [HttpGet("GetUsers"), Authorize]
+        public async Task<ServerResponse> GetUsers() {
+            List<KirilanaturUser> users = await _dbContext.Users.ToListAsync();
+            return new ServerResponse { Data = users };
         }
 
     }
