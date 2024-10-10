@@ -26,9 +26,13 @@ import { LoginComponent } from './components/authentication/login/login.componen
     RegisterComponent,
     LoginComponent,
   ],
-  bootstrap: [AppComponent], imports: [BrowserModule,
-    AppRoutingModule, ReactiveFormsModule,
-    NgOptimizedImage, TranslateModule.forRoot({
+  bootstrap: [AppComponent],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    NgOptimizedImage,
+    TranslateModule.forRoot({
       defaultLanguage: 'sl',
       useDefaultLang: true,
       loader: {
@@ -36,7 +40,9 @@ import { LoginComponent } from './components/authentication/login/login.componen
         useFactory: createTranslateLoader,
         deps: [HttpClient]
       }
-    })], providers: [provideHttpClient(withInterceptorsFromDi())]
+    })
+  ],
+  providers: [provideHttpClient(withInterceptorsFromDi())]
 })
 
 export class AppModule { }

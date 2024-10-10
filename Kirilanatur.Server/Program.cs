@@ -15,7 +15,7 @@ builder.Services.AddSwaggerGen(options => {
         Type = SecuritySchemeType.ApiKey,
     });
     
-    options.OperationFilter<SecurityRequirementsOperationFilter>();
+    options.OperationFilter<SecurityRequirementsOperationFilter>(); 
 });
 
 builder.Services.AddAuthorization();
