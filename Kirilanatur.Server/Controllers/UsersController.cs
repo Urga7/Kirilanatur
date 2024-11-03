@@ -22,22 +22,28 @@ namespace Kirilanatur.Server.Controllers {
         }
 
         [HttpPost("Register")]
-        public async Task<ServerResponse> Register([FromBody] UserDto user)
+        public async Task<ServerResponse> Register([FromBody] RegisterRequestDto registerRequest)
         {
             KirilanaturUser newUser = new KirilanaturUser {
-                FirstName = user.Name,
-                LastName = user.Surname,
-                Email = user.Email,
-                UserName = user.Email
+                FirstName = registerRequest.Name,
+                LastName = registerRequest.Surname,
+                Email = registerRequest.Email,
+                UserName = registerRequest.Email
             };
 
-            IdentityResult result = await _userManager.CreateAsync(newUser, user.Password);
+            IdentityResult result = await _userManager.CreateAsync(newUser, registerRequest.Password);
             if (result.Succeeded)
                 return new ServerResponse { Data = "Successfully registered user" };
 
             return new ServerResponse {
                 Data = string.Join(", ", result.Errors.Select(e => e.Description))
             };
+        }
+        
+        [HttpGet("GetUsers"), Authorize]
+        public async Task<ServerResponse> GetUsers() {
+            List<KirilanaturUser> users = await _dbContext.Users.ToListAsync();
+            return new ServerResponse { Data = users };
         }
 
     }

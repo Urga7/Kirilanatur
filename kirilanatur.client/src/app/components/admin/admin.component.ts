@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ControllerFunction, RequestMethodType, ServerService } from "../../services/server/server.service";
+import { ControllerFunction, ServerService } from "../../services/server/server.service";
 
 @Component({
   selector: 'app-admin',
@@ -10,7 +10,8 @@ export class AdminComponent {
   constructor(private serverService: ServerService) {}
 
   async testMethod() {
-
+    const response: any = await this.serverService.ExecuteServerFunction(ControllerFunction.GetUsers);
+    console.log(response);
   }
 
 }

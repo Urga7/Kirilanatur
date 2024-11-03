@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { ServerResponse } from "../../models/ServerResponse.model";
+import { ServerResponse } from "../../models/server-response";
 import { HttpClient } from "@angular/common/http";
 import { lastValueFrom, Observable } from "rxjs";
 
 export enum ControllerFunction {
-  GetProducts = "Products/GetProducts",
-  AddProduct = "Products/AddProduct",
-  RegisterUser = "Users/Register",
+  GetProducts = "/api/Products/GetProducts",
+  AddProduct = "/api/Products/AddProduct",
+  RegisterUser = "/api/Users/Register",
+  GetUsers = "/api/Users/GetUsers",
+  LoginUser = "/login",
 }
 
 export enum RequestMethodType {
@@ -19,7 +21,7 @@ export enum RequestMethodType {
 })
 export class ServerService {
 
-  private serverUrl: string = 'https://localhost:44387/api/';
+  private serverUrl: string = 'https://localhost:44387';
   constructor(private httpClient: HttpClient) { }
 
   async ExecuteServerFunction(controllerFunction: ControllerFunction, parameters: any = null, method: RequestMethodType = RequestMethodType.GET): Promise<any> {
