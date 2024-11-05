@@ -3,6 +3,7 @@ import { Product } from "../../models/database-objects";
 import { Subscription } from 'rxjs';
 import { ControllerFunction, RequestMethodType, ServerService } from "../../services/server/server.service";
 import { TranslationService } from "../../services/translation/translation.service";
+import { ShoppingCartService } from "../../services/shopping-cart/shopping-cart.service";
 
 @Component({
   selector: 'app-sandals',
@@ -14,7 +15,11 @@ export class SandalsComponent implements OnInit, OnDestroy {
   products: Product[] = [];
   private languageChangeSubscription!: Subscription;
 
-  constructor(private serverService: ServerService, private translationService: TranslationService) {}
+  constructor(
+    private serverService: ServerService,
+    private translationService: TranslationService,
+    public shoppingCartService: ShoppingCartService
+  ) {}
 
   async ngOnInit() {
     this.products = await this.serverService.ExecuteServerFunction(ControllerFunction.GetProducts, { Language: "sl" }, RequestMethodType.POST);

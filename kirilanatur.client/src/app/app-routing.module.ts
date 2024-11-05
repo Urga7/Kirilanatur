@@ -6,6 +6,7 @@ import { SandalsComponent } from "./components/sandals/sandals.component";
 import { AdminComponent } from "./components/admin/admin.component";
 import { RegisterComponent } from "./components/authentication/register/register.component";
 import { LoginComponent } from "./components/authentication/login/login.component";
+import { ShoppingCartComponent } from "./components/shopping-cart/shopping-cart.component";
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'shopping-cart', component: ShoppingCartComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home'},
 ];

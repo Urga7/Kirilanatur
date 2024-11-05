@@ -5,6 +5,7 @@
     "testing": "Testing",
     "admin" : "Admin",
     "register": "Register",
+    "login": "Login",
     "shopping_cart": "Shopping Cart"
   }
 }

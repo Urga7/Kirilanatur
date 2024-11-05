@@ -5,6 +5,7 @@
     "testing": "Testiranje",
     "admin": "Administrator",
     "register": "Registracija",
+    "login": "Prijava",
     "shopping_cart": "Nakupovalni voziček"
   }
 }

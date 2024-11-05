@@ -15,6 +15,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { RegisterComponent } from './components/authentication/register/register.component';
 import { LoginComponent } from './components/authentication/login/login.component';
 import { AuthInterceptorService } from "./services/interceptors/auth-interceptor/auth-interceptor.service";
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AuthInterceptorService } from "./services/interceptors/auth-interceptor
     AdminComponent,
     RegisterComponent,
     LoginComponent,
+    ShoppingCartComponent,
   ],
   bootstrap: [AppComponent],
   imports: [

@@ -1,0 +1,18 @@
+@for(item of shoppingCartService.getItems(); track item.id) {
+  <tr>
+    <td>
+      {{item.name}}
+    </td>
+    <td>
+      {{item.price}}
+    </td>
+    <td>
+      <img ngSrc="{{item.images[0].imageUrl}}" alt="{{item.images[0].imageDescription}}}" height="150" width="150">
+    </td>
+    <td>
+      <button (click)="shoppingCartService.removeItem(item)">
+        Remove
+      </button>
+    </td>
+  </tr>
+}
