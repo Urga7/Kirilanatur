@@ -14,6 +14,8 @@ import { TokensDto } from "../../../models/authentication-dtos";
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  private loginUrl: string = 'https://localhost:44387/login';
+
   loginForm = new FormGroup({
     username: new FormControl(''),
     password: new FormControl(''),
@@ -30,7 +32,7 @@ export class LoginComponent {
       password: this.loginForm.value.password ?? "",
     };
 
-    const response$: Observable<TokensDto> = this.httpClient.post<TokensDto>('https://localhost:44387/login', form);
+    const response$: Observable<TokensDto> = this.httpClient.post<TokensDto>(this.loginUrl, form);
     const response: TokensDto = await lastValueFrom(response$);
     this.authService.setTokens(response.accessToken, response.refreshToken);
   }

@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { ControllerFunction, RequestMethodType, ServerService } from "../../services/server/server.service";
 import { TranslationService } from "../../services/translation/translation.service";
 import { ShoppingCartService } from "../../services/shopping-cart/shopping-cart.service";
+import { ChosenVariationOption } from "../../models/shopping-cart";
 
 @Component({
   selector: 'app-sandals',
@@ -13,6 +14,7 @@ import { ShoppingCartService } from "../../services/shopping-cart/shopping-cart.
 export class SandalsComponent implements OnInit, OnDestroy {
 
   products: Product[] = [];
+  selectedOptions: { [productId: string]: ChosenVariationOption[] } = {};
   private languageChangeSubscription!: Subscription;
 
   constructor(

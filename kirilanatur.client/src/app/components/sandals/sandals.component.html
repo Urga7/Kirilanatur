@@ -14,7 +14,7 @@
         <td>
           <img ngSrc="{{product.images[0].imageUrl}}" alt="{{product.images[0].imageDescription}}}" height="150" width="150">
         </td>
-        @for(variation of product.category.variations; track variation.id){
+        @for(variation of product.category.variations; track variation.id) {
           <td>
             <label for="variation_{{variation.id}}">{{variation.name}}</label>
             <select name="{{variation.name}}" id="variation_{{variation.id}}">
