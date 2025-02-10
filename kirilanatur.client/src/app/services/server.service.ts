@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ServerResponse } from "../../models/server-response";
 import { HttpClient } from "@angular/common/http";
 import { lastValueFrom, Observable } from "rxjs";
+import { ServerResponse } from "../models/server-response";
 
 export enum ControllerFunction {
   GetProducts = "/api/Products/GetProducts",

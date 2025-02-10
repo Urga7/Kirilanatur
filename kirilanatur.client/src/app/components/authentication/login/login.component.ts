@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { ControllerFunction, RequestMethodType, ServerService } from "../../../services/server/server.service";
 import { LoginForm } from "../../../models/forms.model";
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs/internal/lastValueFrom';
 import { Observable } from 'rxjs';
-import { AuthenticationService } from "../../../services/authentication/authentication.service";
+import { AuthenticationService } from "../../../services/authentication.service";
 import { TokensDto } from "../../../models/authentication-dtos";
 
 @Component({

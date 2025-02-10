@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from "rxjs";
-import { RequestMethodType, ServerService } from "../server/server.service";
+import { ServerService } from "./server.service";
 
 export interface TmpProduct {
   name: string | null;

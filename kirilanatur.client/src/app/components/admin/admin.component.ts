@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ControllerFunction, ServerService } from "../../services/server/server.service";
+import { ControllerFunction, ServerService } from "../../services/server.service";
 
 @Component({
     selector: 'app-admin',

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TranslationService } from "../../services/translation/translation.service";
+import { TranslationService } from "../../services/translation.service";
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 

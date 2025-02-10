@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
-import { TmpProduct, UserService } from "../../services/user/user.service";
+import { TmpProduct, UserService } from "../../services/user.service";
 
 @Component({
     selector: 'app-data-flow',

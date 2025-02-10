@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Product } from "../../models/database-objects";
 import { Subscription } from 'rxjs';
-import { ControllerFunction, RequestMethodType, ServerService } from "../../services/server/server.service";
-import { TranslationService } from "../../services/translation/translation.service";
-import { ShoppingCartService } from "../../services/shopping-cart/shopping-cart.service";
+import { ControllerFunction, RequestMethodType, ServerService } from "../../services/server.service";
+import { TranslationService } from "../../services/translation.service";
+import { ShoppingCartService } from "../../services/shopping-cart.service";
 import { ChosenVariationOption } from "../../models/shopping-cart";
 import { NgOptimizedImage } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';

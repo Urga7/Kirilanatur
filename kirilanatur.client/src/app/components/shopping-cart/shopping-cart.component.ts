@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ShoppingCartService } from "../../services/shopping-cart/shopping-cart.service";
-import { Product } from "../../models/database-objects";
+import { ShoppingCartService } from "../../services/shopping-cart.service";
 import { NgOptimizedImage } from '@angular/common';
 
 @Component({

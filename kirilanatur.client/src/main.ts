@@ -1,6 +1,6 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { provideHttpClient, withInterceptorsFromDi, HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
-import { AuthInterceptorService } from './app/services/interceptors/auth-interceptor/auth-interceptor.service';
+import { AuthInterceptorService } from './app/services/auth-interceptor.service';
 import { BrowserModule, bootstrapApplication } from '@angular/platform-browser';
 import { AppRoutingModule } from './app/app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
