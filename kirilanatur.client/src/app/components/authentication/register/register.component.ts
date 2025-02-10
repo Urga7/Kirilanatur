@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RegistrationForm } from "../../../models/forms.model";
 import { ControllerFunction, RequestMethodType, ServerService } from "../../../services/server/server.service";
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+    selector: 'app-register',
+    templateUrl: './register.component.html',
+    styleUrl: './register.component.css',
+    standalone: true,
+    imports: [ReactiveFormsModule]
 })
 export class RegisterComponent implements OnInit {
   registrationForm = new FormGroup({

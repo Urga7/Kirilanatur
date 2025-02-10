@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ControllerFunction, RequestMethodType, ServerService } from "../../../services/server/server.service";
 import { LoginForm } from "../../../models/forms.model";
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { lastValueFrom } from 'rxjs/internal/lastValueFrom';
 import { Observable } from 'rxjs';
@@ -9,9 +9,11 @@ import { AuthenticationService } from "../../../services/authentication/authenti
 import { TokensDto } from "../../../models/authentication-dtos";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrl: './login.component.css',
+    standalone: true,
+    imports: [ReactiveFormsModule]
 })
 export class LoginComponent {
   private loginUrl: string = 'https://localhost:44387/login';

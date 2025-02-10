@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { ControllerFunction, ServerService } from "../../services/server/server.service";
 
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrl: './admin.component.css'
+    selector: 'app-admin',
+    templateUrl: './admin.component.html',
+    styleUrl: './admin.component.css',
+    standalone: true
 })
 export class AdminComponent {
   constructor(private serverService: ServerService) {}

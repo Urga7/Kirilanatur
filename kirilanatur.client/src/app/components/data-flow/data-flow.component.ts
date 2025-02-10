@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import { TmpProduct, UserService } from "../../services/user/user.service";
 
 @Component({
-  selector: 'app-data-flow',
-  templateUrl: './data-flow.component.html',
-  styleUrl: './data-flow.component.css'
+    selector: 'app-data-flow',
+    templateUrl: './data-flow.component.html',
+    styleUrl: './data-flow.component.css',
+    standalone: true,
+    imports: [ReactiveFormsModule]
 })
 export class DataFlowComponent {
 

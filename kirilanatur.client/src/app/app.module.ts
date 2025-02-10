@@ -18,41 +18,39 @@ import { AuthInterceptorService } from "./services/interceptors/auth-interceptor
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DataFlowComponent,
-    NavbarComponent,
-    HomeComponent,
-    SandalsComponent,
-    AdminComponent,
-    RegisterComponent,
-    LoginComponent,
-    ShoppingCartComponent,
-  ],
-  bootstrap: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    NgOptimizedImage,
-    TranslateModule.forRoot({
-      defaultLanguage: 'sl',
-      useDefaultLang: true,
-      loader: {
-        provide: TranslateLoader,
-        useFactory: createTranslateLoader,
-        deps: [HttpClient]
-      }
-    })
-  ],
-  providers: [
-    provideHttpClient(withInterceptorsFromDi()),
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptorService,
-      multi: true,
-    },
-  ]
+    declarations: [AppComponent],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        NgOptimizedImage,
+        TranslateModule.forRoot({
+            defaultLanguage: 'sl',
+            useDefaultLang: true,
+            loader: {
+                provide: TranslateLoader,
+                useFactory: createTranslateLoader,
+                deps: [HttpClient]
+            }
+        }),
+        DataFlowComponent,
+        NavbarComponent,
+        HomeComponent,
+        SandalsComponent,
+        AdminComponent,
+        RegisterComponent,
+        LoginComponent,
+        ShoppingCartComponent
+    ],
+    providers: [
+        provideHttpClient(withInterceptorsFromDi()),
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptorService,
+            multi: true,
+        },
+    ]
 })
 
 export class AppModule { }

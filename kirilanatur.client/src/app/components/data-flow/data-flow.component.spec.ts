@@ -8,8 +8,8 @@ describe('DataFlowComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [DataFlowComponent]
-    })
+    imports: [DataFlowComponent]
+})
     .compileComponents();
     
     fixture = TestBed.createComponent(DataFlowComponent);

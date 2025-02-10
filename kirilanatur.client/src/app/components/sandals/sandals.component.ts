@@ -5,11 +5,15 @@ import { ControllerFunction, RequestMethodType, ServerService } from "../../serv
 import { TranslationService } from "../../services/translation/translation.service";
 import { ShoppingCartService } from "../../services/shopping-cart/shopping-cart.service";
 import { ChosenVariationOption } from "../../models/shopping-cart";
+import { NgOptimizedImage } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-sandals',
-  templateUrl: './sandals.component.html',
-  styleUrl: './sandals.component.css'
+    selector: 'app-sandals',
+    templateUrl: './sandals.component.html',
+    styleUrl: './sandals.component.css',
+    standalone: true,
+    imports: [NgOptimizedImage, ReactiveFormsModule]
 })
 export class SandalsComponent implements OnInit, OnDestroy {
 
