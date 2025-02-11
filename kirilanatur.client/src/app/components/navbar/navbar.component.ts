@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { TranslationService } from "../../services/translation.service";
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { LanguageSelectionComponent } from "../choose-language/language-selection.component";
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -8,14 +8,13 @@ import { TranslateModule } from '@ngx-translate/core';
     templateUrl: './navbar.component.html',
     styleUrl: './navbar.component.css',
     standalone: true,
-    imports: [RouterLink, RouterLinkActive, TranslateModule]
+    imports: [
+      RouterLink,
+      RouterLinkActive,
+      LanguageSelectionComponent,
+      TranslateModule
+    ]
 })
 export class NavbarComponent {
-
-  constructor(private translationService : TranslationService) {}
-
-  switchLanguage(lang: string): void {
-    this.translationService.switchLanguage(lang);
-  }
 
 }

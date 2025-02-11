@@ -1,64 +1,24 @@
-<nav>
-  <ul class="navbar-group-list">
-    <li class="navbar-group navbar-logo">
-      <img src="assets/images/kirilanatur-logo-primary.png" alt="Kirilanatur logo" class="logo">
-    </li>
-    <li class="navbar-group navbar-links">
+<div class="navbar">
+  <div>
+    <img src="assets/images/kirilanatur-logo-primary.png" alt="Kirilanatur logo" class="logo">
+  </div>
+  <nav>
+    <div>
       <ul>
+      </ul>
+      <ul>
+      </ul>
+    </div>
+    <div>
+      <ul>
+        <li>TRGOVINA</li>
+        <li>ZGODBA</li>
+        <li>DARNILNI BON</li>
+        <li>KONTAKT</li>
         <li>
-          <a routerLink="/home" routerLinkActive="link-active">
-            {{ 'navbar.home' | translate }}
-          </a>
-        </li>
-        <li>
-          <a routerLink="/sandals" routerLinkActive="link-active">
-            {{ 'navbar.sandals' | translate }}
-          </a>
-        </li>
-        <li>
-          <a routerLink="/dataFlow" routerLinkActive="link-active">
-            {{ 'navbar.testing' | translate }}
-          </a>
-        </li>
-        <li>
-          <a routerLink="/admin" routerLinkActive="link-active">
-            {{ 'navbar.admin' | translate }}
-          </a>
-        </li>
-        <li>
-          <a routerLink="/register" routerLinkActive="link-active">
-            {{ 'navbar.register' | translate }}
-          </a>
-        </li>
-        <li>
-          <a routerLink="/login" routerLinkActive="link-active">
-            {{ 'navbar.login' | translate }}
-          </a>
+          <img src="assets/svgs/shopping-bag.svg" alt="shopping bag">
         </li>
       </ul>
-    </li>
-    <li class="navbar-group navbar-cart">
-      <ul>
-        <li>
-          <a routerLink="/shopping-cart" routerLinkActive="link-active">
-            {{ 'navbar.shopping_cart' | translate }}
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li class="navbar-group navbar-lang">
-      <ul>
-        <li>
-          <a (click)="switchLanguage('en')">
-            <img src="assets/svgs/uk_flag.svg" alt="English">
-          </a>
-        </li>
-        <li>
-          <a (click)="switchLanguage('sl')">
-            <img src="assets/svgs/sl_flag.svg" alt="Slovenian">
-          </a>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+    </div>
+  </nav>
+</div>

@@ -1,13 +1,45 @@
+:root {
+  --white-primary: #f6f6f6;
+  --font-family-primary: 'Lato';
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --font-size-normal: 20px;
+  --text-color-primary: #353E2CFF;
+}
+
 @font-face {
   font-family: 'Lato';
   src: url('/assets/fonts/Lato-Light.ttf') format('truetype');
-  font-weight: normal;
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/assets/fonts/Lato-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/assets/fonts/Lato-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/assets/fonts/Lato-Black.ttf') format('truetype');
+  font-weight: 900;
   font-style: normal;
 }
 
 html {
-  font-family: 'Lato', 'sans-serif';
-  font-weight: 400;
+  font-family: var(--font-family-primary), 'sans-serif';
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-normal);
+  color: var(--text-color-primary);
 }
 
 * {
@@ -29,102 +61,4 @@ ul {
     margin: 0;
     padding: 0;
   }
-}
-
-select {
-  padding: 8px;
-  margin: 5px;
-  outline: none;
-  border-radius: 0;
-  appearance: none;
-  background-color: white;
-  border: 1px solid #7a7a7a;
-}
-
-input {
-  padding: 10px;
-  margin: 5px;
-  appearance: none;
-  border: 1px solid #7a7a7a;
-}
-
-.data-container {
-  margin: 40px;
-  display: flex;
-  justify-content: center;
-
-  table {
-    border-collapse: collapse;
-    thead {
-      tr {
-        border-bottom: 1px solid #333;
-      }
-    }
-    tbody {
-      tr {
-        border-bottom: 1px solid lightgray;
-        border-left: 1px solid #efefef;
-        border-right: 1px solid #efefef;
-        td {
-          padding: 0 10px;
-
-          a {
-            color: #333;
-            &:hover {
-              cursor: pointer;
-            }
-          }
-
-          form {
-            .button-and-feedback-container {
-              display: flex;
-              justify-content: center;
-              button {
-                margin: 10px;
-              }
-              .info-container {
-                display: flex;
-                align-items: center;
-              }
-            }
-          }
-        }
-      }
-
-      tr:nth-child(even) {
-        background-color: #f6f6f6;
-      }
-    }
-  }
-}
-
-.search-input {
-  margin: 40px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-
-.info-container {
-  display: flex;
-  justify-content: center;
-
-  p {
-    margin-top: 30px;
-  }
-}
-
-.button-container {
-  display: flex;
-  justify-content: center;
-}
-
-
-.success-msg {
-  color: green;
-}
-
-.error-msg {
-  color: red;
 }
