@@ -1,10 +1,11 @@
 :root {
-  --white-primary: #f6f6f6;
+  --white-primary: #FDFDFDFF;
+  --beige-primary: #D0CCB2FF;
   --font-family-primary: 'Lato';
   --font-weight-normal: 400;
-  --font-weight-bold: 700;
+  --font-weight-bold: 900;
   --font-size-normal: 20px;
-  --text-color-primary: #353E2CFF;
+  --text-color-primary: #2C2E35FF;
 }
 
 @font-face {
@@ -50,6 +51,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  background-color: #f6f6f6;
 }
 
 ul {

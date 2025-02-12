@@ -1,7 +1,76 @@
 .navbar {
   background: #FDFDFDFF;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .logo {
   height: 200px;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
+
+.nav-items {
+  display: flex;
+  flex-direction: row;
+}
+
+li {
+  margin: 20px;
+  font-weight: var(--font-weight-bold);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.nav-upper {
+  display: flex;
+  flex-direction: row;
+}
+
+.language-selection {
+  display: flex;
+  flex-direction: row;
+}
+
+.social-media-links {
+  display: flex;
+  flex-direction: row;
+  background: var(--beige-primary);
+  --text-color-primary: var(--white-primary);
+}
+
+svg {
+  height: 40px;
+
+  &:hover {
+    height: 38px;
+    cursor: pointer;
+  }
+
+  path {
+    stroke: var(--text-color-primary);
+  }
+
+  circle {
+    stroke: var(--text-color-primary);
+  }
+
+  rect {
+    stroke: var(--text-color-primary);
+  }
+
+  .svg-fill {
+    fill: var(--text-color-primary);
+  }
+}
+
+
+
+
+
+
