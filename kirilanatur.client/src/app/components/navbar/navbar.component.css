@@ -6,11 +6,11 @@
 }
 
 .logo {
-  height: 200px;
+  max-height: 220px;
+}
 
-  &:hover {
-    cursor: pointer;
-  }
+nav {
+  margin-right: 60px;
 }
 
 .nav-items {
@@ -19,7 +19,6 @@
 }
 
 li {
-  margin: 20px;
   font-weight: var(--font-weight-bold);
 
   &:hover {
@@ -27,50 +26,47 @@ li {
   }
 }
 
-.nav-upper {
+.nav-top {
   display: flex;
   flex-direction: row;
-}
+  justify-content: flex-end;
 
-.language-selection {
-  display: flex;
-  flex-direction: row;
-}
+  .language-selection-container,
+  .social-media-links-container {
+    height: 70px;
+    display: flex;
+    align-items: flex-end;
 
-.social-media-links {
-  display: flex;
-  flex-direction: row;
-  background: var(--beige-primary);
-  --text-color-primary: var(--white-primary);
-}
-
-svg {
-  height: 40px;
-
-  &:hover {
-    height: 38px;
-    cursor: pointer;
+    ul {
+      height: 40px;
+    }
   }
 
-  path {
-    stroke: var(--text-color-primary);
+  .social-media-links-container {
+    background: var(--beige-primary);
+    padding: 5px;
   }
 
-  circle {
-    stroke: var(--text-color-primary);
+  .language-selection {
+    margin: 0 0 5px 60px;
   }
 
-  rect {
-    stroke: var(--text-color-primary);
-  }
-
-  .svg-fill {
-    fill: var(--text-color-primary);
+  .social-media-links {
+    display: flex;
+    flex-direction: row;
+    --text-color-primary: var(--white-primary);
   }
 }
 
+.nav-bottom {
+  margin-top: 45px;
 
-
+  .nav-items {
+    svg {
+      height: 35px;
+    }
+  }
+}
 
 
 

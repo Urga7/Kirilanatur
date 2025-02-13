@@ -34,7 +34,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles/main.css"
             ],
             "scripts": []
           },
@@ -95,7 +95,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles/main.css"
             ],
             "scripts": [],
             "karmaConfig": "karma.conf.js"

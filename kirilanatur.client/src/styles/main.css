@@ -1,0 +1,38 @@
+@import "./reset.css";
+@import "./lato.css";
+@import "./svg.css";
+@import "./utils.css";
+
+:root {
+  --white-primary: #FDFDFDFF;
+  --beige-primary: #D0CCB2FF;
+  --font-family-primary: 'Lato';
+  --font-weight-normal: 400;
+  --font-weight-bold: 900;
+  --font-size-normal: 20px;
+  --text-color-primary: #2C2E35FF;
+  --letter-spacing-normal: 1px;
+}
+
+html {
+  font-family: var(--font-family-primary), 'sans-serif';
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-normal);
+  color: var(--text-color-primary);
+  letter-spacing: var(--letter-spacing-normal);
+}
+
+body {
+  background-color: #f6f6f6;
+}
+
+a {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+li {
+  display: flex;
+  align-items: center;
+}
