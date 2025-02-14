@@ -5,10 +5,10 @@ import { LanguageSelectionComponent } from "../language-selection/language-selec
 import { SocialMediaLinksComponent } from "../social-media-links/social-media-links.component";
 
 @Component({
-    selector: 'app-navbar',
-    templateUrl: './navbar.component.html',
-    styleUrl: './navbar.component.css',
-    standalone: true,
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrl: './navbar.component.css',
+  standalone: true,
   imports: [
     RouterLink,
     RouterLinkActive,

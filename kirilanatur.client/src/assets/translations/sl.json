@@ -1,11 +1,8 @@
 ﻿{
   "navbar": {
-    "home": "Domov",
-    "sandals": "Sandali",
-    "testing": "Testiranje",
-    "admin": "Administrator",
-    "register": "Registracija",
-    "login": "Prijava",
-    "shopping_cart": "Nakupovalni voziček"
+    "shop": "TRGOVINA",
+    "story": "ZGODBA",
+    "gift_coupon": "DARILNI BON",
+    "contact": "KONTAKT"
   }
 }

@@ -1,11 +1,8 @@
 ﻿{
   "navbar": {
-    "home": "Home",
-    "sandals": "Sandals",
-    "testing": "Testing",
-    "admin" : "Admin",
-    "register": "Register",
-    "login": "Login",
-    "shopping_cart": "Shopping Cart"
+    "shop": "SHOP",
+    "story": "STORY",
+    "gift_coupon": "GIFT COUPON",
+    "contact": "CONTACT"
   }
 }
