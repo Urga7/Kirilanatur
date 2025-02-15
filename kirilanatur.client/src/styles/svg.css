@@ -1,10 +1,6 @@
 ﻿svg {
   height: 40px;
 
-  &:hover {
-    cursor: pointer;
-  }
-
   path {
     stroke: var(--text-color-primary);
   }
@@ -20,4 +16,9 @@
   .svg-fill {
     fill: var(--text-color-primary);
   }
+}
+
+.box-svg {
+  min-height: 40px;
+  min-width: 40px;
 }

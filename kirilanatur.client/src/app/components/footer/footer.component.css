@@ -1,5 +1,7 @@
-.contact-info li {
-  text-align: center;
+.company-address {
+  li {
+    justify-content: flex-start;
+  }
 }
 
 app-social-media-links {
@@ -14,5 +16,11 @@ app-social-media-links {
 @media (max-width: 1240px) {
   .home-grid {
     gap: 2rem;
+  }
+
+  .company-address {
+    li {
+      justify-content: center;
+    }
   }
 }

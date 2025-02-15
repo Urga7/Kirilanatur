@@ -26,6 +26,28 @@ a:hover {
   width: 100%;
 }
 
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+}
+
+button {
+  background-color: var(--text-color-primary);
+  color: var(--white-primary);
+  border-radius: 4px;
+  text-wrap: nowrap;
+  padding: 0.8rem 1.2rem;
+  transition: opacity 0.1s;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.9;
+  }
+}
+
 .home-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -60,6 +82,40 @@ a:hover {
 
     .svg-fill {
       fill: var(--white-primary);
+    }
+  }
+}
+
+.router-link-active {
+  text-decoration: underline;
+}
+
+.back-button {
+  border: none;
+  background: transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  h2 {
+    transition: text-decoration 0.1s
+  }
+
+  svg {
+    height: 70px;
+    transition: translate 0.1s;
+  }
+
+  &:hover {
+    svg {
+      translate: -0.4rem;
+    }
+
+    h2 {
+      text-decoration: underline;
+      text-underline-offset: 0.5rem;
     }
   }
 }
