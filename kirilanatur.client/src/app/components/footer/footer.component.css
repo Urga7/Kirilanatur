@@ -1,0 +1,18 @@
+.contact-info li {
+  text-align: center;
+}
+
+app-social-media-links {
+  float: right;
+}
+
+.home-footer {
+  background-color: var(--beige-primary);
+  color: var(--white-primary);
+}
+
+@media (max-width: 1240px) {
+  .home-grid {
+    gap: 2rem;
+  }
+}

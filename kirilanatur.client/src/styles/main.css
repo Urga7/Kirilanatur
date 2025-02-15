@@ -18,18 +18,54 @@ body {
   background-color: #f6f6f6;
 }
 
-a {
-  &:hover {
-    cursor: pointer;
+a:hover {
+  cursor: pointer;
+}
+
+.banner {
+  width: 100%;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 3rem;
+
+  li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }
 
-li {
-  display: flex;
-  align-items: center;
-  font-weight: var(--font-weight-bold);
+.home-footer {
+  .social-media-links {
+    display: flex;
+    flex-direction: row;
+  }
 
-  &:hover {
-    text-decoration: underline;
+  svg {
+    path {
+      stroke: var(--white-primary);
+    }
+
+    circle {
+      stroke: var(--white-primary);
+    }
+
+    rect {
+      stroke: var(--white-primary);
+    }
+
+    .svg-fill {
+      fill: var(--white-primary);
+    }
+  }
+}
+
+@media (max-width: 1240px) {
+  .home-grid {
+    grid-template-columns: 1fr;
   }
 }

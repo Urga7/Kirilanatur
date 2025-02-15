@@ -28,6 +28,16 @@ nav {
 .nav-items {
   display: flex;
   flex-direction: row;
+
+  li {
+    display: flex;
+    align-items: center;
+    font-weight: var(--font-weight-bold);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .nav-top {
@@ -84,7 +94,7 @@ nav {
   }
 
   .hamburger-menu:has(input:checked) + nav {
-    top: calc(max(200px, 100vw * 0.3) * (23 / 40) - 2px);
+    top: calc(max(200px, 100vw * 0.3) * (23 / 40) - 4px);
   }
 
   .nav-items {

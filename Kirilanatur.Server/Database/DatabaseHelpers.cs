@@ -8,7 +8,7 @@ namespace Kirilanatur.Server.Database {
         public static void Initialise(IServiceProvider serviceProvider) {
             
             var context = new KirilanaturDbContext(serviceProvider.GetRequiredService<DbContextOptions<KirilanaturDbContext>>());
-            if (context.Products.Any())
+            if (context.products.Any())
                 return;
             
             //////////////////////////////////////////////////////////////////////////////////
@@ -181,25 +181,25 @@ namespace Kirilanatur.Server.Database {
             //////////////////////////////////////////////////////////////////////////////////
             //////////////////////////////////////////////////////////////////////////////////
             
-            AddProductImageWithTranslations(context, sandal142.Id, "assets/images/products/art-142-01.jpg", 
+            AddProductImageWithTranslations(context, sandal142.Id, "assets/images/products-old/art-142-01.jpg", 
             [
                 ("en", "Sandal 142 default view"),
                 ("sl", "Sandal 142 privzet pogled")
             ]);
             
-            AddProductImageWithTranslations(context, sandal142.Id, "assets/images/products/art-142-02.jpg", 
+            AddProductImageWithTranslations(context, sandal142.Id, "assets/images/products-old/art-142-02.jpg", 
             [
                 ("en", "Sandal 142 side view"),
                 ("sl", "Sandal 142 stranski pogled")
             ]);
             
-            AddProductImageWithTranslations(context, sandal142.Id, "assets/images/products/art-142-03.jpg", 
+            AddProductImageWithTranslations(context, sandal142.Id, "assets/images/products-old/art-142-03.jpg", 
             [
                 ("en", "Sandal 142 example"),
                 ("sl", "Sandal 142 primer")
             ]);
             
-            AddProductImageWithTranslations(context, sandal142.Id, "assets/images/products/art-142-04.jpg", 
+            AddProductImageWithTranslations(context, sandal142.Id, "assets/images/products-old/art-142-04.jpg", 
             [
                 ("en", "Sandal 142 top view"),
                 ("sl", "Sandal 142 zgornji pogled")
@@ -208,25 +208,25 @@ namespace Kirilanatur.Server.Database {
             //////////////////////////////////////////////////////////////////////////////////
             //////////////////////////////////////////////////////////////////////////////////
             
-            AddProductImageWithTranslations(context, sandal143.Id, "assets/images/products/art-143-01.jpg", 
+            AddProductImageWithTranslations(context, sandal143.Id, "assets/images/products-old/art-143-01.jpg", 
             [
                 ("en", "Sandal 143 default view"),
                 ("sl", "Sandal 143 privzet pogled")
             ]);
             
-            AddProductImageWithTranslations(context, sandal143.Id, "assets/images/products/art-143-02.jpg", 
+            AddProductImageWithTranslations(context, sandal143.Id, "assets/images/products-old/art-143-02.jpg", 
             [
                 ("en", "Sandal 143 side view"),
                 ("sl", "Sandal 143 stranski pogled")
             ]);
             
-            AddProductImageWithTranslations(context, sandal143.Id, "assets/images/products/art-143-03.jpg", 
+            AddProductImageWithTranslations(context, sandal143.Id, "assets/images/products-old/art-143-03.jpg", 
             [
                 ("en", "Sandal 143 example"),
                 ("sl", "Sandal 143 primer")
             ]);
             
-            AddProductImageWithTranslations(context, sandal143.Id, "assets/images/products/art-143-04.jpg", 
+            AddProductImageWithTranslations(context, sandal143.Id, "assets/images/products-old/art-143-04.jpg", 
             [
                 ("en", "Sandal 143 top view"),
                 ("sl", "Sandal 143 zgornji pogled")
@@ -235,25 +235,25 @@ namespace Kirilanatur.Server.Database {
             //////////////////////////////////////////////////////////////////////////////////
             //////////////////////////////////////////////////////////////////////////////////
             
-            AddProductImageWithTranslations(context, sandal144.Id, "assets/images/products/art-144-01.jpg", 
+            AddProductImageWithTranslations(context, sandal144.Id, "assets/images/products-old/art-144-01.jpg", 
             [
                 ("en", "Sandal 144 default view"),
                 ("sl", "Sandal 144 privzet pogled")
             ]);
             
-            AddProductImageWithTranslations(context, sandal144.Id, "assets/images/products/art-144-02.jpg", 
+            AddProductImageWithTranslations(context, sandal144.Id, "assets/images/products-old/art-144-02.jpg", 
             [
                 ("en", "Sandal 144 side view"),
                 ("sl", "Sandal 144 stranski pogled")
             ]);
             
-            AddProductImageWithTranslations(context, sandal144.Id, "assets/images/products/art-144-03.jpg", 
+            AddProductImageWithTranslations(context, sandal144.Id, "assets/images/products-old/art-144-03.jpg", 
             [
                 ("en", "Sandal 144 example"),
                 ("sl", "Sandal 144 primer")
             ]);
             
-            AddProductImageWithTranslations(context, sandal144.Id, "assets/images/products/art-144-04.jpg", 
+            AddProductImageWithTranslations(context, sandal144.Id, "assets/images/products-old/art-144-04.jpg", 
             [
                 ("en", "Sandal 144 top view"),
                 ("sl", "Sandal 144 zgornji pogled")
@@ -262,25 +262,25 @@ namespace Kirilanatur.Server.Database {
             //////////////////////////////////////////////////////////////////////////////////
             //////////////////////////////////////////////////////////////////////////////////
             
-            AddProductImageWithTranslations(context, sandal145.Id, "assets/images/products/art-145-01.jpg", 
+            AddProductImageWithTranslations(context, sandal145.Id, "assets/images/products-old/art-145-01.jpg", 
             [
                 ("en", "Sandal 145 default view"),
                 ("sl", "Sandal 145 privzet pogled")
             ]);
             
-            AddProductImageWithTranslations(context, sandal145.Id, "assets/images/products/art-145-02.jpg", 
+            AddProductImageWithTranslations(context, sandal145.Id, "assets/images/products-old/art-145-02.jpg", 
             [
                 ("en", "Sandal 145 side view"),
                 ("sl", "Sandal 145 stranski pogled")
             ]);
             
-            AddProductImageWithTranslations(context, sandal145.Id, "assets/images/products/art-145-03.jpg", 
+            AddProductImageWithTranslations(context, sandal145.Id, "assets/images/products-old/art-145-03.jpg", 
             [
                 ("en", "Sandal 145 example"),
                 ("sl", "Sandal 145 primer")
             ]);
             
-            AddProductImageWithTranslations(context, sandal145.Id, "assets/images/products/art-145-04.jpg", 
+            AddProductImageWithTranslations(context, sandal145.Id, "assets/images/products-old/art-145-04.jpg", 
             [
                 ("en", "Sandal 145 top view"),
                 ("sl", "Sandal 145 zgornji pogled")
@@ -293,7 +293,7 @@ namespace Kirilanatur.Server.Database {
         }
         
         public static void ClearTables(KirilanaturDbContext context) {
-            context.Products.RemoveRange(context.Products);
+            context.products.RemoveRange(context.products);
             context.ProductTranslations.RemoveRange(context.ProductTranslations);
             context.ProductImages.RemoveRange(context.ProductImages);
             context.ProductImageTranslations.RemoveRange(context.ProductImageTranslations);
@@ -308,7 +308,7 @@ namespace Kirilanatur.Server.Database {
         }
         
         private static Product AddProductWithTranslations(KirilanaturDbContext context, Product product, List<(string langCode, string name, string description)> translations) {
-            context.Products.Add(product);
+            context.products.Add(product);
             context.SaveChanges();
             var productTranslations = translations.Select(t => new ProductTranslation {
                 LanguageCode = t.langCode,
