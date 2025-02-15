@@ -1,4 +1,41 @@
-﻿/* Copyright (c) 2023 WebDevSimplified */
+﻿/*
+MIT License
+
+Copyright (c) 2023 WebDevSimplified
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+/*
+  This css is not the exact original of the WebDevSimplified's code. I've made
+  some modifications to make it fit the style of my page.
+*/
+
+:root {
+  --bar-width: 60px;
+  --bar-height: 10px;
+  --hamburger-gap: 6px;
+  --hamburger-margin: 50px;
+  --animation-timing: 200ms ease-in-out;
+  --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+  --hamburger-border-radius: 4px;
+}
 
 .hamburger-menu {
   --x-width: calc(var(--hamburger-height) * 1.41421356237);
@@ -6,23 +43,23 @@
   flex-direction: column;
   gap: var(--hamburger-gap);
   width: max-content;
-  position: absolute;
-  top: var(--hamburger-margin);
-  left: var(--hamburger-margin);
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: var(--hamburger-margin);
   z-index: 2;
   cursor: pointer;
+  transition: translate var(--animation-timing);
 }
 
 .hamburger-menu:has(input:checked) {
-  --foreground: white;
-  --background: #333;
+  translate: calc(var(--x-width) - var(--hamburger-height));
 }
 
 .hamburger-menu:has(input:focus-visible)::before,
 .hamburger-menu:has(input:focus-visible)::after,
 .hamburger-menu input:focus-visible {
-  border: 1px solid var(--background);
-  box-shadow: 0 0 0 1px var(--foreground);
+  border: 1px solid var(--white-primary);
+  box-shadow: 0 0 0 1px var(--text-color-primary);
 }
 
 .hamburger-menu::before,
@@ -31,12 +68,14 @@
   content: "";
   width: var(--bar-width);
   height: var(--bar-height);
-  background-color: var(--foreground);
-  border-radius: 9999px;
+  background-color: var(--text-color-primary);
+  border-radius: var(--hamburger-border-radius);
   transform-origin: left center;
-  transition: opacity var(--animation-timing), width var(--animation-timing),
-  rotate var(--animation-timing), translate var(--animation-timing),
-  background-color var(--animation-timing);
+  transition: opacity var(--animation-timing),
+              width var(--animation-timing),
+              rotate var(--animation-timing),
+              translate var(--animation-timing),
+              background-color var(--animation-timing);
 }
 
 .hamburger-menu input {
@@ -67,14 +106,25 @@
 .sidebar {
   transition: translate var(--animation-timing);
   translate: -100%;
-  padding: 0.5rem 1rem;
-  padding-top: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
-  background-color: var(--foreground);
-  color: var(--background);
+  padding: calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem) 1rem 0.5rem;
+  background-color: var(--text-color-primary);
+  color: var(--white-primary);
   max-width: 10rem;
   min-height: 100vh;
 }
 
 .hamburger-menu:has(input:checked) + .sidebar {
   translate: 0;
+}
+
+@media (min-width: 1200px) {
+  .hamburger-menu,
+  .hamburger-menu::before,
+  .hamburger-menu::after {
+    display: none;
+
+    & > * {
+      display: none;
+    }
+  }
 }

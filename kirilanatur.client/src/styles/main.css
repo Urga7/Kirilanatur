@@ -1,30 +1,10 @@
+@import "./root.css";
 @import "./reset.css";
 @import "./lato.css";
 @import "./svg.css";
 @import "./utils.css";
 @import "./hamburger-menu.css";
 @import "./navbar.css";
-
-:root {
-  --white-primary: #FDFDFDFF;
-  --beige-primary: #D0CCB2FF;
-  --font-family-primary: 'Lato';
-  --font-weight-normal: 400;
-  --font-weight-bold: 900;
-  --font-size-normal: 20px;
-  --text-color-primary: #2C2E35FF;
-  --letter-spacing-normal: 1px;
-
-  /* Hamburger menu variables */
-  --bar-width: 60px;
-  --bar-height: 8px;
-  --hamburger-gap: 6px;
-  --foreground: #333;
-  --background: white;
-  --hamburger-margin: 8px;
-  --animation-timing: 200ms ease-in-out;
-  --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
-}
 
 html {
   font-family: var(--font-family-primary), 'sans-serif';
@@ -47,4 +27,9 @@ a {
 li {
   display: flex;
   align-items: center;
+  font-weight: var(--font-weight-bold);
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
