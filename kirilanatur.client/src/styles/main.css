@@ -34,6 +34,10 @@ h3 {
   font-size: var(--font-size-h3);
 }
 
+h5 {
+  margin-top: 1rem;
+}
+
 button {
   background-color: var(--text-color-primary);
   color: var(--white-primary);
@@ -91,13 +95,15 @@ button {
 }
 
 .back-button {
+  top: 2rem;
+  left: 2rem;
+  position: absolute;
   border: none;
   background: transparent;
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1.5rem;
 
   h2 {
     transition: text-decoration 0.1s

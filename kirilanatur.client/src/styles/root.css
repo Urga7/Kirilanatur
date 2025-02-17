@@ -12,5 +12,6 @@
   --font-size-h3: 24px;
   --text-color-primary: #2C2E35FF;
   --letter-spacing-normal: 1px;
-  --screen-width-mobile: 576px;
+  --screen-width-small: 576px;
+  --screen-width-medium: 1200px;
 }
