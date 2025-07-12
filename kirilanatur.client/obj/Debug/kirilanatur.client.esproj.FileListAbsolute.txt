@@ -1,2 +1,0 @@
-C:\Personal_Documents\02_Personal\02_Projects\Kirilanatur\kirilanatur.client\obj\Debug\kirilanatur.client.esproj.CoreCompileInputs.cache
-C:\Files\02_Projects\Kirilanatur\kirilanatur.client\obj\Debug\kirilanatur.client.esproj.CoreCompileInputs.cache

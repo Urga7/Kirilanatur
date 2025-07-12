@@ -1,5 +1,10 @@
-## Root:
+﻿## Ide files:
 .idea
 .vs
 
+# Per user:
+Kirilanatur.sln.DotSettings.user
 
+## Compiled:
+bin
+obj
