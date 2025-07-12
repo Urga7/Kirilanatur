@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@import "./root.css";
+@import "./svg.css";
+
+html {
+  font-family: var(--font-family-primary), 'sans-serif';
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-normal);
+  color: var(--text-color-primary);
+  letter-spacing: var(--letter-spacing-normal);
+}

@@ -1,0 +1,19 @@
+svg {
+  height: 40px;
+
+  path {
+    stroke: var(--text-color-primary);
+  }
+
+  circle {
+    stroke: var(--text-color-primary);
+  }
+
+  rect {
+    stroke: var(--text-color-primary);
+  }
+
+  .svg-fill {
+    fill: var(--text-color-primary);
+  }
+}
