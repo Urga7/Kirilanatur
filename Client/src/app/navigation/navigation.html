@@ -3,8 +3,55 @@
     <img class="max-h-20" src="assets/images/kirilanatur-logo.png" alt="kirilanatur-logo"/>
   </div>
   <div class="flex items-center mr-4 gap-4">
-    <span class="material-symbols-outlined text-2xl!">menu</span>
-    <span class="material-symbols-outlined text-2xl!">shopping_bag</span>
+    <span (click)="toggleNav()" class="material-symbols-outlined text-2xl! cursor-pointer">menu</span>
+    <span class="material-symbols-outlined text-2xl! cursor-pointer">shopping_bag</span>
   </div>
 </nav>
+
 <router-outlet></router-outlet>
+
+<div
+  class="fixed top-0 w-full h-screen bg-white transform transition-transform duration-200 ease-in-out flex flex-col justify-between"
+  [class.translate-y-0]="navigationExpanded()"
+  [class.-translate-y-full]="!navigationExpanded()">
+  <div>
+    <div class="w-full flex flex-row justify-end">
+    <span
+      (click)="toggleNav()"
+      class="material-symbols-outlined cursor-pointer m-4 text-2xl!">
+      close
+    </span>
+    </div>
+    <ul class="font-light p-4 text-center flex flex-col gap-6">
+      <li>
+        <a class="hover:underline" (click)="toggleNav()" [routerLink]="['home']">
+          DOMOV
+        </a>
+      </li>
+      <li>
+        <a class="hover:underline" (click)="toggleNav()" [routerLink]="['home']">
+          TRGOVINA
+        </a>
+      </li>
+      <li>
+        <a class="hover:underline" (click)="toggleNav()" [routerLink]="['home']">
+          ZGODBA
+        </a>
+      </li>
+      <li>
+        <a class="hover:underline" (click)="toggleNav()" [routerLink]="['home']">
+          MATERIALI
+        </a>
+      </li>
+      <li>
+        <a class="hover:underline cursor-pointer" (click)="scrollToBottom()">
+          KONTAKT
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="mb-4">
+    <app-social-media-links></app-social-media-links>
+  </div>
+</div>
+
