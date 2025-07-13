@@ -1,8 +1,8 @@
-@if (productId) {
+@if (productId !== null) {
   <div class="relative">
-    <div class="absolute top-4 left-4">
-      <app-svg [url]="'assets/svgs/pineapple.svg'"></app-svg>
-      <app-svg [url]="'assets/svgs/leather.svg'"></app-svg>
+    <div class="absolute top-4 left-4 flex flex-col gap-2">
+      <app-svg [url]="'pineapple-leather'"></app-svg>
+      <app-svg [url]="'leather'"></app-svg>
     </div>
     <img [src]="imageUrl()" [alt]="imageUrlAlt()">
   </div>
