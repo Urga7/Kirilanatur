@@ -9,3 +9,10 @@ html {
   color: var(--text-color-primary);
   letter-spacing: var(--letter-spacing-normal);
 }
+
+h1, h2, h3 {
+  color: var(--white-primary);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

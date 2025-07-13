@@ -1,7 +1,10 @@
+@import "./lato.css";
+
 :root {
-  --white-primary: #fdfdfd;
+  --white-primary: #fdfeff;
   --pure-white: #FFFFFF;
-  --beige-primary: #D0CCB2FF;
+  --beige-primary-dark: #b8b39f;
+  --beige-primary-light: #e5e3db;
   --beige-dark: #7A724AFF;
   --font-family-primary: 'Lato';
   --font-weight-normal: 400;
