@@ -8,5 +8,5 @@ import { CommonModule } from '@angular/common';
   templateUrl: './svg.html',
 })
 export class Svg {
-  readonly url = input.required<string>();
+  readonly identifier = input.required<string>();
 }

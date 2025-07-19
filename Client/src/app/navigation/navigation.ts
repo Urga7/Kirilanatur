@@ -18,7 +18,7 @@ export class Navigation {
     const expanded = !this.navigationExpanded();
     this.navigationExpanded.set(expanded);
 
-    // Lock or unlock body scroll
+    // Lock or unlock the body scroll
     document.body.style.overflow = this.navigationExpanded()
       ? 'hidden'
       : 'auto';

@@ -1,9 +1,20 @@
 @if (productId !== null) {
   <div class="relative">
-    <div class="absolute top-4 left-4 flex flex-col gap-2">
-      <app-svg [url]="'pineapple-leather'"></app-svg>
-      <app-svg [url]="'leather'"></app-svg>
-    </div>
-    <img [src]="imageUrl()" [alt]="imageUrlAlt()">
+    @if (selectedImageIdentifier() !== 'd') {
+      <div class="absolute top-4 left-4 flex flex-col gap-2">
+        <app-svg [identifier]="'pineapple-leather'"></app-svg>
+        <app-svg [identifier]="'leather'"></app-svg>
+      </div>
+    }
+    <img [src]="selectedImageUrl()" [alt]="selectedImageAlt()">
+  </div>
+  <div class="flex items-center justify-between mt-4 ml-1 mr-1">
+    @for (identifier of availableImageIdentifiers(); track identifier) {
+      <img
+        (click)="this.selectedImageIdentifier.set(identifier)"
+        [src]="imageUrl(identifier)"
+        [alt]="imageAlt(identifier)"
+        class="cursor-pointer hover:opacity-75 w-3/10">
+    }
   </div>
 }
