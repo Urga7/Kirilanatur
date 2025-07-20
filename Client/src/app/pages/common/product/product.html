@@ -17,4 +17,50 @@
         class="cursor-pointer hover:opacity-75 w-3/10">
     }
   </div>
+  <div class="text-(--text-color-primary) m-4">
+    <h1 class="text-4xl font-medium tracking-tight">{{productName()}}</h1>
+    <h2 class="text-xl font-medium tracking-tight">89,00 EUR</h2>
+    <h3 class="mt-6 font-medium">Velikost</h3>
+    <div class="flex items-center text-(--beige-dark) divide-(--beige-dark) divide-x-2 pt-2">
+      @for (size of shoeSizes; track size) {
+        <span
+          [class.font-bold]="size === selectedShoeSize()"
+          [class.pl-2]="$index > 0"
+          [class.pr-2]="$index < shoeSizes.length - 1"
+          (click)="this.selectedShoeSize.set(size)"
+          class="leading-3 cursor-pointer hover:font-medium">
+          {{size}}
+        </span>
+      }
+    </div>
+    <h3 class="mt-6 font-medium">Barva</h3>
+    <div class="flex flex-row items-center gap-2">
+      <div class="flex flex-col items-center mt-1">
+        <div class="bg-black rounded-full h-4 w-4"></div>
+        <span class="text-xs">črna</span>
+      </div>
+    </div>
+    <button class="bg-(--text-color-primary) p-3 mt-4 mb-8 text-(--white-primary) cursor-pointer hover:opacity-75">
+      DODAJ V KOŠARICO
+    </button>
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-2xl!">delivery_truck_speed</span>
+      <span class="text-xs">Predviden čas dostave 5-8 delovnih dni</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="material-symbols-outlined text-2xl!">replay_30</span>
+      <span class="text-xs">30 dni za vračilo izdelkov</span>
+    </div>
+    <h3 class="mt-6 font-medium">Podrobnosti izdelka</h3>
+    <h4 class="text-sm mt-2 font-medium">Zunanji material</h4>
+    <ul class="text-xs">
+      <li>- 72% Pineapple Leaf Fiber, 18% Polylactic Acid, 5% Bio PU, 5% PU</li>
+      <li>- goveje usnje</li>
+    </ul>
+    <h4 class="text-sm mt-2 font-medium">Material podplata</h4>
+    <ul class="text-xs pb-6">
+      <li>- goveje usnje</li>
+      <li>- guma</li>
+    </ul>
+  </div>
 }
