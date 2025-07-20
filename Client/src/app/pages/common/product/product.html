@@ -1,24 +1,24 @@
 @if (productId !== null) {
   <div class="relative">
-    @if (selectedImageIdentifier() !== 'd') {
+    @if (selectedImageId() !== 'd') {
       <div class="absolute top-4 left-4 flex flex-col gap-2">
-        <app-svg [identifier]="'pineapple-leather'"></app-svg>
-        <app-svg [identifier]="'leather'"></app-svg>
+        <app-svg [id]="'pineapple-leather'"></app-svg>
+        <app-svg [id]="'leather'"></app-svg>
       </div>
     }
     <img [src]="selectedImageUrl()" [alt]="selectedImageAlt()">
   </div>
   <div class="flex items-center justify-between mt-4 ml-1 mr-1">
-    @for (identifier of availableImageIdentifiers(); track identifier) {
+    @for (imageId of availableImageIds(); track imageId) {
       <img
-        (click)="this.selectedImageIdentifier.set(identifier)"
-        [src]="imageUrl(identifier)"
-        [alt]="imageAlt(identifier)"
+        (click)="this.selectedImageId.set(imageId)"
+        [src]="productData.imageUrl(productId, imageId)"
+        [alt]="productData.imageAlt(productId, imageId)"
         class="cursor-pointer hover:opacity-75 w-3/10">
     }
   </div>
   <div class="text-(--text-color-primary) m-4">
-    <h1 class="text-4xl font-medium tracking-tight">{{productName()}}</h1>
+    <h1 class="text-4xl font-medium tracking-tight">{{productData.productName(productId)}}</h1>
     <h2 class="text-xl font-medium tracking-tight">89,00 EUR</h2>
     <h3 class="mt-6 font-medium">Velikost</h3>
     <div class="flex items-center text-(--beige-dark) divide-(--beige-dark) divide-x-2 pt-2">
