@@ -19,7 +19,7 @@
   </div>
   <div class="text-(--text-color-primary) m-4">
     <h1 class="text-4xl font-medium tracking-tight">{{productData.productName(productId)}}</h1>
-    <h2 class="text-xl font-medium tracking-tight">89,00 EUR</h2>
+    <h2 class="text-xl font-medium tracking-tight">78,00 EUR</h2>
     <h3 class="mt-6 font-medium">Velikost</h3>
     <div class="flex items-center text-(--beige-dark) divide-(--beige-dark) divide-x-2 pt-2">
       @for (size of shoeSizes; track size) {
@@ -40,9 +40,26 @@
         <span class="text-xs">črna</span>
       </div>
     </div>
-    <button class="bg-(--text-color-primary) p-3 mt-4 mb-8 text-(--white-primary) cursor-pointer hover:opacity-75">
-      DODAJ V KOŠARICO
+
+
+    <button
+      (click)="addItemToShoppingBag()"
+      [disabled]="isAddingItem()"
+      class="relative bg-(--text-color-primary) p-3 mt-4 mb-8 text-(--white-primary) cursor-pointer hover:opacity-75 overflow-hidden w-full text-center"
+      style="min-width: 180px">
+      <span
+        class="transition-opacity duration-300"
+        [style.opacity]="isAddingItem() ? 0 : 1">
+        DODAJ V KOŠARICO
+      </span>
+      <span
+        class="absolute left-1/2 top-1/2 transition-all duration-300"
+        [style.opacity]="isAddingItem() ? 1 : 0"
+        [style.transform]="isAddingItem() ? 'translate(-50%, -50%) scale(1.4)' : 'translate(-50%, -50%) scale(0.4)'">
+        ✔
+      </span>
     </button>
+
     <div class="flex items-center gap-3">
       <span class="material-symbols-outlined text-2xl!">delivery_truck_speed</span>
       <span class="text-xs">Predviden čas dostave 5-8 delovnih dni</span>

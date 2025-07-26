@@ -4,7 +4,7 @@
   </div>
   <div class="flex items-center mr-4 gap-4">
     <span (click)="toggleNav()" class="material-symbols-outlined text-2xl! cursor-pointer">menu</span>
-    <span class="material-symbols-outlined text-2xl! cursor-pointer">shopping_bag</span>
+    <span (click)="toggleShoppingBag()" class="material-symbols-outlined text-2xl! cursor-pointer">shopping_bag</span>
   </div>
 </nav>
 
@@ -44,7 +44,7 @@
         </a>
       </li>
       <li>
-        <a class="hover:underline cursor-pointer" (click)="scrollToBottom()">
+        <a class="hover:underline cursor-pointer" (click)="scrollToBottom()" [routerLink]="['home']">
           KONTAKT
         </a>
       </li>
@@ -52,6 +52,23 @@
   </div>
   <div class="mb-4">
     <app-social-media-links></app-social-media-links>
+  </div>
+</div>
+
+<div
+  class="fixed top-0 w-full h-screen bg-white transform transition-transform duration-200 ease-in-out flex flex-col justify-between"
+  [class.translate-y-0]="shoppingBagExpanded()"
+  [class.-translate-y-full]="!shoppingBagExpanded()">
+  <div>
+    <div class="w-full flex justify-between items-center">
+      <h3 class="m-4">Nakupovalna vrečka</h3>
+      <span
+        (click)="toggleShoppingBag()"
+        class="material-symbols-outlined cursor-pointer text-2xl! m-4">
+        close
+      </span>
+    </div>
+    <app-shopping-bag-preview></app-shopping-bag-preview>
   </div>
 </div>
 
