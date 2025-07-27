@@ -16,6 +16,9 @@ export class ShoppingBag {
       .reduce((currentSum, item) =>
       currentSum + item.quantity, 0)
   })
+  readonly totalPrice = computed(() => {
+    return this.itemCount() * 78
+  })
 
   addItem(productId: string, size: number, quantity: number = 1) {
     const items = this.items()
