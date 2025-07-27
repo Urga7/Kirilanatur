@@ -1,8 +1,8 @@
 import {Component, computed, inject, OnInit, signal} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Svg} from '../svg/svg';
-import {ShoppingBag, ShoppingBagItem} from '../../../common/shopping-bag.service';
-import {ProductData} from '../../../common/product-image.service';
+import {ShoppingBag} from '../../../common/shopping-bag.service';
+import {ProductData} from '../../../common/product-data.service';
 import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
@@ -44,15 +44,9 @@ export class Product implements OnInit {
   }
 
   addItemToShoppingBag() {
-    if (this.isAddingItem()) return
+    if (this.isAddingItem() || !this.productId) return
 
-    const item: ShoppingBagItem = {
-      productId: this.productId ?? "",
-      size: this.selectedShoeSize(),
-      quantity: 1
-    }
-
-    this.shoppingBag.addItem(item)
+    this.shoppingBag.addItem(this.productId, this.selectedShoeSize())
     this.isAddingItem.set(true)
 
     setTimeout(() => {

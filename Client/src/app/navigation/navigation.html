@@ -4,7 +4,23 @@
   </div>
   <div class="flex items-center mr-4 gap-4">
     <span (click)="toggleNav()" class="material-symbols-outlined text-2xl! cursor-pointer">menu</span>
-    <span (click)="toggleShoppingBag()" class="material-symbols-outlined text-2xl! cursor-pointer">shopping_bag</span>
+
+    @let itemCount = shoppingBag.itemCount();
+    @if (itemCount > 0) {
+      <span
+        [matBadge]="itemCount"
+        (click)="toggleShoppingBag()"
+        class="material-symbols-outlined text-2xl! cursor-pointer">
+        shopping_bag
+      </span>
+    }
+    @else {
+      <span
+        (click)="toggleShoppingBag()"
+        class="material-symbols-outlined text-2xl! cursor-pointer">
+        shopping_bag
+      </span>
+    }
   </div>
 </nav>
 
@@ -62,9 +78,7 @@
   <div>
     <div class="w-full flex justify-between items-center">
       <h3 class="m-4">Nakupovalna vrečka</h3>
-      <span
-        (click)="toggleShoppingBag()"
-        class="material-symbols-outlined cursor-pointer text-2xl! m-4">
+      <span (click)="toggleShoppingBag()" class="material-symbols-outlined cursor-pointer text-2xl! m-4">
         close
       </span>
     </div>

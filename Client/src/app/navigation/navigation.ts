@@ -1,7 +1,9 @@
-import {Component, signal} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {RouterLink, RouterOutlet} from '@angular/router';
 import {SocialMediaLinks} from '../pages/common/social-media-links/social-media-links';
 import {ShoppingBagPreview} from '../pages/common/shopping-bag-preview/shopping-bag-preview';
+import {MatBadge} from '@angular/material/badge';
+import {ShoppingBag} from '../common/shopping-bag.service';
 
 @Component({
   selector: 'app-navigation',
@@ -9,13 +11,15 @@ import {ShoppingBagPreview} from '../pages/common/shopping-bag-preview/shopping-
     RouterOutlet,
     RouterLink,
     SocialMediaLinks,
-    ShoppingBagPreview
+    ShoppingBagPreview,
+    MatBadge
   ],
   templateUrl: './navigation.html',
 })
 export class Navigation {
   protected readonly navigationExpanded = signal(false);
   protected readonly shoppingBagExpanded = signal(false);
+  protected readonly shoppingBag = inject(ShoppingBag)
 
   toggleNav() {
     const expanded = !this.navigationExpanded();

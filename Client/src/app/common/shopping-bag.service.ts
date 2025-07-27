@@ -1,4 +1,4 @@
-import {Injectable, signal} from '@angular/core';
+import {computed, Injectable, signal} from '@angular/core';
 
 export interface ShoppingBagItem {
   productId: string
@@ -10,21 +10,39 @@ export interface ShoppingBagItem {
   providedIn: 'root'
 })
 export class ShoppingBag {
-  private readonly items = signal<ShoppingBagItem[]>([])
-
-  getItemCount() {
-    return this.items().length
-  }
-
-  getItems() {
+  readonly items = signal<ShoppingBagItem[]>([])
+  readonly itemCount = computed(() => {
     return this.items()
+      .reduce((currentSum, item) =>
+      currentSum + item.quantity, 0)
+  })
+
+  addItem(productId: string, size: number, quantity: number = 1) {
+    const items = this.items()
+    const existingItem = items.find((it) => it.productId === productId)
+
+    if (existingItem) {
+      existingItem.quantity += quantity
+    } else {
+      const newItem: ShoppingBagItem = { productId, size, quantity }
+      items.push(newItem)
+    }
+
+    this.items.set([...items])
   }
 
-  addItem(item: ShoppingBagItem) {
-    this.items.set([...this.items(), item])
-  }
+  removeItem(productId: string) {
+    const items = this.items()
+    const existingItemIndex = items.findIndex((it) => it.productId === productId)
 
-  removeItem(item: ShoppingBagItem) {
-    this.items.set(this.items().filter(i => i !== item))
+    if (existingItemIndex === -1) return
+
+    if (items[existingItemIndex].quantity > 1) {
+      items[existingItemIndex].quantity -= 1
+    } else {
+      items.splice(existingItemIndex, 1)
+    }
+
+    this.items.set([...items])
   }
 }
