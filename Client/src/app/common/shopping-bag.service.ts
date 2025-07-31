@@ -22,7 +22,10 @@ export class ShoppingBag {
 
   addItem(productId: string, size: number, quantity: number = 1) {
     const items = this.items()
-    const existingItem = items.find((it) => it.productId === productId)
+    const existingItem = items.find((it) =>
+      it.productId === productId &&
+      it.size === size
+    )
 
     if (existingItem) {
       existingItem.quantity += quantity
@@ -34,9 +37,12 @@ export class ShoppingBag {
     this.items.set([...items])
   }
 
-  removeItem(productId: string) {
+  removeItem(productId: string, size: number) {
     const items = this.items()
-    const existingItemIndex = items.findIndex((it) => it.productId === productId)
+    const existingItemIndex = items.findIndex((it) =>
+      it.productId === productId &&
+      it.size === size
+    )
 
     if (existingItemIndex === -1) return
 
