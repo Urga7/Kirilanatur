@@ -1,6 +1,6 @@
 @if (shoppingBag.itemCount() > 0) {
   <ul class="flex flex-col gap-4 m-2">
-    @for (item of shoppingBag.items(); track item.productId) {
+    @for (item of shoppingBag.items(); track `${item.productId}_${item.size}`) {
       <li class="flex justify-between w-full p-2 bg-(--beige-primary-light)">
         <img
           [src]="productData.imageUrl(item.productId)"
@@ -10,14 +10,14 @@
           <div class="flex justify-between">
             <div class="div">
               <h4 class="text-sm">{{productData.productName(item.productId)}}</h4>
-              <h5 class="text-xs">črna</h5>
+              <h5 class="text-xs">Velikost {{item.size}}</h5>
             </div>
-            <h4 class="text-sm">78,00 EUR</h4>
+            <h4 class="text-sm text-right">78,00 EUR</h4>
           </div>
           <div class="flex justify-between">
             <h5 class="text-xs">{{item.quantity}}x</h5>
             <button
-              (click)="shoppingBag.removeItem(item.productId)"
+              (click)="shoppingBag.removeItem(item.productId, item.size)"
               class="text-xs cursor-pointer hover:underline">
               Odstrani</button>
           </div>
