@@ -1,48 +1,57 @@
-import {Component, inject, signal} from '@angular/core';
-import {RouterLink, RouterOutlet} from '@angular/router';
-import {SocialMediaLinks} from '../pages/common/social-media-links/social-media-links';
-import {ShoppingBagPreview} from '../pages/common/shopping-bag-preview/shopping-bag-preview';
-import {MatBadge} from '@angular/material/badge';
-import {ShoppingBag} from '../common/shopping-bag.service';
+import { Component, inject, signal } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { SocialMediaLinks } from '../pages/common/social-media-links/social-media-links';
+import { ShoppingBagPreview } from '../pages/common/shopping-bag-preview/shopping-bag-preview';
+import { MatBadge } from '@angular/material/badge';
+import { ShoppingBag } from '../common/shopping-bag.service';
+import { NavItem } from './nav-item/nav-item';
+
+export interface NavigationItem {
+  label: string
+  route: string
+  selector?: string
+}
 
 @Component({
   selector: 'app-navigation',
   imports: [
     RouterOutlet,
-    RouterLink,
     SocialMediaLinks,
     ShoppingBagPreview,
-    MatBadge
+    MatBadge,
+    NavItem
   ],
   templateUrl: './navigation.html',
 })
 export class Navigation {
-  protected readonly navigationExpanded = signal(false);
-  protected readonly shoppingBagExpanded = signal(false);
+  protected readonly navigationExpanded = signal(false)
+  protected readonly shoppingBagExpanded = signal(false)
   protected readonly shoppingBag = inject(ShoppingBag)
 
-  toggleNav() {
-    const expanded = !this.navigationExpanded();
-    this.navigationExpanded.set(expanded);
+  protected readonly navItems: NavigationItem[] = [
+    { label: 'DOMOV', route: '/home' },
+    { label: 'TRGOVINA', route: '/shop' },
+    { label: 'ZGODBA', route: '/home', selector: '#story' },
+    { label: 'MATERIALI', route: '/home', selector: '#materials' },
+    { label: 'KONTAKT', route: '/home', selector: '#contact' },
+  ]
 
-    // Lock or unlock the body scroll
-    document.body.style.overflow = expanded
-      ? 'hidden'
-      : 'auto';
+  public toggleNav() {
+    const expanded = !this.navigationExpanded()
+    this.navigationExpanded.set(expanded)
+    this.adjustBodyScrollLock(expanded)
   }
 
-  toggleShoppingBag() {
-    const expanded = !this.shoppingBagExpanded();
-    this.shoppingBagExpanded.set(expanded);
-
-    // Lock or unlock the body scroll
-    document.body.style.overflow = expanded
-      ? 'hidden'
-      : 'auto';
+  protected toggleShoppingBag() {
+    const expanded = !this.shoppingBagExpanded()
+    this.shoppingBagExpanded.set(expanded)
+    this.adjustBodyScrollLock(expanded)
   }
 
-  scrollToBottom() {
-    this.toggleNav();
-    window.scrollTo({top: document.body.scrollHeight});
+  private adjustBodyScrollLock(isOverlayActive: boolean) {
+    // Lock or unlock the body scroll
+    document.body.style.overflow = isOverlayActive
+      ? 'hidden'
+      : 'auto'
   }
 }
