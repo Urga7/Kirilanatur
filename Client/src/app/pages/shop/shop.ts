@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {range} from 'rxjs';
 import {ProductCard} from '../common/product-card/product-card';
 
 @Component({
@@ -11,5 +10,4 @@ import {ProductCard} from '../common/product-card/product-card';
 })
 export class Shop {
 
-  protected readonly range = range;
 }

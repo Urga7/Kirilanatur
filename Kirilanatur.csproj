@@ -8,11 +8,12 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="JetBrains.Annotations" Version="2025.2.4" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0"/>
+        <PackageReference Include="Stripe.net" Version="50.0.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Core\" />
       <Folder Include="Infrastructure\" />
     </ItemGroup>
 

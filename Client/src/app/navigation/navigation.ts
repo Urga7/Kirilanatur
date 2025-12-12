@@ -31,9 +31,9 @@ export class Navigation {
   protected readonly navItems: NavigationItem[] = [
     { label: 'DOMOV', route: '/home' },
     { label: 'TRGOVINA', route: '/shop' },
-    { label: 'ZGODBA', route: '/home', selector: '#story' },
-    { label: 'MATERIALI', route: '/home', selector: '#materials' },
-    { label: 'KONTAKT', route: '/home', selector: '#contact' },
+    { label: 'ZGODBA', route: '/home', selector: 'story' },
+    { label: 'MATERIALI', route: '/home', selector: 'materials' },
+    { label: 'KONTAKT', route: '/home', selector: 'contact' },
   ]
 
   public toggleNav() {

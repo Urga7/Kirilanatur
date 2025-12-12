@@ -26,6 +26,14 @@
     }
   </ul>
   <p class="m-4 text-right">Skupaj: {{shoppingBag.totalPrice()}},00 EUR</p>
+  <div class="w-full flex justify-center">
+    <button
+      (click)="toCheckout(shoppingBag.items()[0].productId)"
+      class="relative bg-(--text-color-primary) p-3 mt-4 mb-8 text-(--white-primary) hover:opacity-75 text-center cursor-pointer"
+      style="min-width: 180px">
+      NA BLAGAJNO
+    </button>
+  </div>
 }
 
 @else {
