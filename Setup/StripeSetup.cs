@@ -1,5 +1,4 @@
-﻿using Kirilanatur.Core.Domain.External.Stripe;
-using Stripe;
+﻿using Stripe;
 
 namespace Kirilanatur.Setup;
 
@@ -9,9 +8,8 @@ public static class StripeSetup
     {
         public WebApplicationBuilder SetupStripe()
         {
-            var stripeKeys = new StripeKeys();
-            builder.Configuration.GetSection("StripeKeys").Bind(stripeKeys);
-            builder.Services.AddSingleton(stripeKeys);
+            var stripeSecretKey = builder.Configuration.GetValue<string>("stripe-secret-key");
+            StripeConfiguration.ApiKey = stripeSecretKey;
             
             builder.Services.AddScoped<TokenService>();
             builder.Services.AddScoped<ChargeService>();

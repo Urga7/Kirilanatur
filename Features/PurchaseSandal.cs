@@ -1,9 +1,6 @@
 ﻿using System.Runtime.Serialization;
 using JetBrains.Annotations;
-using Kirilanatur.Core.Domain.External.Stripe;
 using Kirilanatur.Infrastructure.Endpoints;
-using Microsoft.AspNetCore.Mvc;
-using Stripe;
 using Stripe.Checkout;
 
 namespace Kirilanatur.Features;
@@ -22,9 +19,8 @@ public static class PurchaseSandal
         }
     }
 
-    private static async Task<IResult> Handler(PurchaseSandalRequest request, StripeKeys stripeKeys)
+    private static async Task<IResult> Handler(PurchaseSandalRequest request)
     {
-        StripeConfiguration.ApiKey = stripeKeys.SecretKey;
         var options = new SessionCreateOptions
         {
             LineItems = [
