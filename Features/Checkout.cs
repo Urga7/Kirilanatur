@@ -5,31 +5,32 @@ using Stripe.Checkout;
 
 namespace Kirilanatur.Features;
 
-public static class PurchaseSandal
+public static class Checkout
 {
-    [DataContract] private record PurchaseSandalRequest(string PriceId, long Quantity);
-    [DataContract] private record PurchaseSandalResponse(string Url);
+    [DataContract] private record CheckoutRequest(CheckoutItem[] Items);
+    [DataContract] private record CheckoutItem(string PriceId, long Quantity);
+    [DataContract] private record CheckoutResponse(string Url);
     
     [UsedImplicitly]
     public class Endpoint : IEndpoint
     {
         public void MapEndpoint(IEndpointRouteBuilder app)
         {
-            app.MapPost("/api/sandals/purchase", Handler);
+            app.MapPost("/api/checkout", Handler);
         }
     }
 
-    private static async Task<IResult> Handler(PurchaseSandalRequest request)
+    private static async Task<IResult> Handler(CheckoutRequest request)
     {
         var options = new SessionCreateOptions
         {
-            LineItems = [
-                new SessionLineItemOptions
-                {
-                    Price = request.PriceId,
-                    Quantity = request.Quantity
-                }
-            ],
+            LineItems = request.Items
+            .Select(r => new SessionLineItemOptions
+            {
+                Price = r.PriceId,
+                Quantity = r.Quantity
+            })
+            .ToList(),
             Mode = "payment",
             SuccessUrl = "http://localhost:4200/success",
             CancelUrl = "http://localhost:4200/home"
@@ -43,6 +44,6 @@ public static class PurchaseSandal
         
         var service = new SessionService();
         var session = await service.CreateAsync(options);
-        return Results.Ok(new PurchaseSandalResponse(session.Url));
+        return Results.Ok(new CheckoutResponse(session.Url));
     }
 }

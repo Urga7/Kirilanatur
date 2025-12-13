@@ -14,7 +14,7 @@ export class ShoppingBagPreview {
 
   private checkout = inject(Checkout)
 
-  protected toCheckout(productId: string) {
-    void this.checkout.purchase(+productId)
+  protected toCheckout() {
+    void this.checkout.purchase()
   }
 }
