@@ -1,7 +1,13 @@
 import {computed, Injectable, signal} from '@angular/core';
+import { ShoeSize } from '../pages/common/product/product';
+import { ProductWithPrices } from './product-repository';
 
 export interface ShoppingBagItem {
-  productId: string
+  name: string
+  image: string
+  imageAlt: string
+  priceId: string
+  price: number
   size: number
   quantity: number
 }
@@ -16,32 +22,39 @@ export class ShoppingBag {
       .reduce((currentSum, item) =>
       currentSum + item.quantity, 0)
   )
-  protected readonly fixedPricePerItemInEur = 78
-  readonly totalPrice = computed(() => this.itemCount() * this.fixedPricePerItemInEur)
+  readonly totalPrice = computed(() => {
+    const items = this.items()
+    return items.reduce((currentSum, item) =>
+      currentSum + item.quantity * item.price, 0)
+  })
 
-  addItem(productId: string, size: number, quantity: number = 1) {
+  addItem(product: ProductWithPrices, shoeSize: ShoeSize, quantity: number = 1) {
     const items = this.items()
     const existingItem = items.find((it) =>
-      it.productId === productId &&
-      it.size === size
-    )
+      it.priceId === shoeSize.priceId)
 
     if (existingItem) {
       existingItem.quantity += quantity
     } else {
-      const newItem: ShoppingBagItem = { productId, size, quantity }
+      const newItem: ShoppingBagItem = {
+        name: product.name,
+        priceId: shoeSize.priceId,
+        price: product.defaultPrice,
+        size: shoeSize.size,
+        image: product.mainImage,
+        imageAlt: product.mainImage,
+        quantity
+      }
       items.push(newItem)
     }
 
     this.items.set([...items])
   }
 
-  removeItem(productId: string, size: number) {
+  removeItem(priceId: string) {
     const items = this.items()
     const existingItemIndex = items.findIndex((it) =>
-      it.productId === productId &&
-      it.size === size
-    )
+      it.priceId === priceId)
 
     if (existingItemIndex === -1) {
       return

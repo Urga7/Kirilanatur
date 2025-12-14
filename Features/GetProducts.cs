@@ -1,5 +1,6 @@
 ﻿using System.Runtime.Serialization;
 using JetBrains.Annotations;
+using Kirilanatur.Infrastructure.Attributes;
 using Kirilanatur.Infrastructure.Endpoints;
 using Stripe;
 
@@ -7,17 +8,17 @@ namespace Kirilanatur.Features;
 
 public static class GetProducts
 {
-    [DataContract]
+    [Dto]
     private sealed record ProductDto(
     string Id,
     string Name,
     string DefaultPriceId,
     string MainImage,
     string[] Images, 
-    string ExampleUsageImage);
+    string ExampleUsageImage
+    );
     
-    [DataContract]
-    private sealed record GetProductsResponse(ProductDto[] Products);
+    [Dto] private sealed record GetProductsResponse([property: DataMember] ProductDto[] Products);
     
     [UsedImplicitly]
     public sealed class Endpoint : IEndpoint
@@ -32,7 +33,7 @@ public static class GetProducts
     {
         var productsService = new ProductService();
         var stripeResponse = await productsService.ListAsync();
-        var products = stripeResponse.Data.Select(ToProductDto).ToArray();
+        var products = stripeResponse.Data.Select(ToProductDto).OrderBy(p => p.Name).ToArray();
         return Results.Ok(new GetProductsResponse(products));
     }
 

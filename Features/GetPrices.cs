@@ -1,5 +1,5 @@
-﻿using System.Runtime.Serialization;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
+using Kirilanatur.Infrastructure.Attributes;
 using Kirilanatur.Infrastructure.Endpoints;
 using Stripe;
 
@@ -7,11 +7,15 @@ namespace Kirilanatur.Features;
 
 public static class GetPrices
 {
-    [DataContract]
-    private sealed record PriceDto(string Id, string ProductId, long Amount, int Size);
+    [Dto] 
+    private sealed record PriceDto(
+    string Id, 
+    string ProductId,
+    long Amount,
+    int Size
+    );
     
-    [DataContract]
-    private sealed record GetPricesResponse(PriceDto[] Prices);
+    [Dto] private sealed record GetPricesResponse(PriceDto[] Prices);
     
     [UsedImplicitly]
     public sealed class Endpoint : IEndpoint

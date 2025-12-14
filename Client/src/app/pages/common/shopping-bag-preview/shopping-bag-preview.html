@@ -1,23 +1,23 @@
 @if (shoppingBag.itemCount() > 0) {
   <ul class="flex flex-col gap-4 m-2">
-    @for (item of shoppingBag.items(); track `${item.productId}_${item.size}`) {
+    @for (item of shoppingBag.items(); track item.priceId) {
       <li class="flex justify-between w-full p-2 bg-(--beige-primary-light)">
         <img
-          [src]="productData.imageUrl(item.productId)"
-          [alt]="productData.imageAlt(item.productId)"
+          [src]="`assets/images/products/${item.image}`"
+          [alt]="item.imageAlt"
           class="max-w-22">
         <div class="flex flex-col justify-between p-2 w-full">
           <div class="flex justify-between">
             <div class="div">
-              <h4 class="text-sm">{{productData.productName(item.productId)}}</h4>
+              <h4 class="text-sm">{{item.name}}</h4>
               <h5 class="text-xs">Velikost {{item.size}}</h5>
             </div>
-            <h4 class="text-sm text-right">78,00 EUR</h4>
+            <h4 class="text-sm text-right">{{item.price}},00 EUR</h4>
           </div>
           <div class="flex justify-between">
             <h5 class="text-xs">{{item.quantity}}x</h5>
             <button
-              (click)="shoppingBag.removeItem(item.productId, item.size)"
+              (click)="shoppingBag.removeItem(item.priceId)"
               class="text-xs cursor-pointer hover:underline">
               Odstrani</button>
           </div>

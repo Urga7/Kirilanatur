@@ -9,20 +9,20 @@ import { CheckoutRequest, CheckoutResponse } from '../../common/checkout';
   providedIn: 'root'
 })
 export class KirilanaturApi {
-  private readonly baseUrl = 'http://localhost:5122/api/'
+  private readonly baseUrl = 'http://localhost:5122/'
   private readonly httpClient = inject(HttpClient)
   private readonly apiClient = new ApiClient(this.httpClient, this.baseUrl)
 
-  readonly get = {
-    products: () => this.apiClient.callApi
-      <GetProductsResponse>("products"),
-
-    prices: () => this.apiClient.callApi
-      <GetPricesResponse>("prices"),
+  getProducts() {
+    return this.apiClient.callApi <GetProductsResponse>("products")
   }
 
-  readonly post = {
-    checkout: (request: CheckoutRequest) => this.apiClient.callApi
-      <CheckoutResponse>("checkout", undefined, HttpRequestMethodType.POST, request)
+  getPrices(){
+    return this.apiClient.callApi <GetPricesResponse>("prices")
+  }
+
+  checkout(request: CheckoutRequest) {
+    return this.apiClient.callApi <CheckoutResponse>
+    ("checkout", undefined, HttpRequestMethodType.POST, request)
   }
 }

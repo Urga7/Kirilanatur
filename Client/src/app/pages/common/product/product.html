@@ -1,35 +1,41 @@
-@if (productId !== null) {
-  <div class="relative">
-    @if (selectedImageId() !== 'd') {
-      <div class="absolute top-4 left-4 flex flex-col gap-2">
-        <app-svg [id]="'pineapple-leather'"></app-svg>
-        <app-svg [id]="'leather'"></app-svg>
-      </div>
-    }
-    <img [src]="selectedImageUrl()" [alt]="selectedImageAlt()">
-  </div>
+@let product = this.product();
+@if (product !== undefined) {
+  @let selectedImage = this.selectedImage();
+  @if (selectedImage !== undefined) {
+    <div class="relative">
+      @if (selectedImage.type !== ImageType.UsageExample) {
+        <div class="absolute top-4 left-4 flex flex-col gap-2">
+          <app-svg [id]="'pineapple-leather'"></app-svg>
+          <app-svg [id]="'leather'"></app-svg>
+        </div>
+      }
+      <img [src]="`assets/images/products/${selectedImage.path}`" [alt]="selectedImage.alt">
+    </div>
+  }
+
   <div class="flex items-center justify-between mt-4 ml-1 mr-1">
-    @for (imageId of availableImageIds(); track imageId) {
+    @for (image of availableImages(); track image.path) {
       <img
-        (click)="this.selectedImageId.set(imageId)"
-        [src]="productData.imageUrl(productId, imageId)"
-        [alt]="productData.imageAlt(productId, imageId)"
+        (click)="this.selectedImage.set(image)"
+        [src]="`assets/images/products/${image.path}`"
+        [alt]="image.alt"
         class="cursor-pointer hover:opacity-75 w-3/10">
     }
   </div>
   <div class="text-(--text-color-primary) m-4">
-    <h1 class="text-4xl font-medium tracking-tight">{{productData.productName(productId)}}</h1>
-    <h2 class="text-xl font-medium tracking-tight">78,00 EUR</h2>
+    <h1 class="text-4xl font-medium tracking-tight">{{product.name}}</h1>
+    <h2 class="text-xl font-medium tracking-tight">{{product.defaultPrice}},00 EUR</h2>
     <h3 class="mt-6 font-medium">Velikost</h3>
     <div class="flex items-center text-(--beige-dark) divide-(--beige-dark) divide-x-2 pt-2">
-      @for (size of shoeSizes; track size) {
+      @let shoeSizes = this.shoeSizes();
+      @for (shoeSize of shoeSizes; track shoeSize.size) {
         <span
-          [class.font-bold]="size === selectedShoeSize()"
+          [class.font-bold]="shoeSize.priceId === selectedShoeSize()?.priceId"
           [class.pl-2]="$index > 0"
           [class.pr-2]="$index < shoeSizes.length - 1"
-          (click)="this.selectedShoeSize.set(size)"
+          (click)="selectedShoeSize.set(shoeSize)"
           class="leading-3 cursor-pointer hover:font-medium">
-          {{size}}
+          {{shoeSize.size}}
         </span>
       }
     </div>

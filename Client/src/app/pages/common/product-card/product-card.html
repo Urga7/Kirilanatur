@@ -1,7 +1,8 @@
-<div (click)="goToProduct(id())" class="bg-(--beige-primary-light) p-3 cursor-pointer">
-  <img src="assets/images/products/product-{{id()}}b.jpg" alt="product-{{id()}}b"/>
+@let product = this.product();
+<div (click)="goToProduct()" class="bg-(--beige-primary-light) p-3 cursor-pointer">
+  <img src="assets/images/products/{{product.mainImage}}" alt="{{product.mainImage}}"/>
   <div class="flex items-center justify-between mt-3">
-    <h3 class="">KI70{{id()}}</h3>
-    <h3 class="">78,00 EUR</h3>
+    <h3 [innerText]="product.name"></h3>
+    <h3 [innerText]="product.defaultPrice + ',00 EUR'"></h3>
   </div>
 </div>

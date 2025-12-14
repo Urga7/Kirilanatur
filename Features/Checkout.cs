@@ -1,5 +1,5 @@
-﻿using System.Runtime.Serialization;
-using JetBrains.Annotations;
+﻿using JetBrains.Annotations;
+using Kirilanatur.Infrastructure.Attributes;
 using Kirilanatur.Infrastructure.Endpoints;
 using Stripe.Checkout;
 
@@ -7,16 +7,18 @@ namespace Kirilanatur.Features;
 
 public static class Checkout
 {
-    [DataContract] private record CheckoutRequest(CheckoutItem[] Items);
-    [DataContract] private record CheckoutItem(string PriceId, long Quantity);
-    [DataContract] private record CheckoutResponse(string Url);
+    [Dto] private record CheckoutRequest(CheckoutItem[] Items);
+    
+    [Dto] private record CheckoutItem(string PriceId, long Quantity);
+    
+    [Dto] private record CheckoutResponse(string Url);
     
     [UsedImplicitly]
     public sealed class Endpoint : IEndpoint
     {
         public void MapEndpoint(IEndpointRouteBuilder app)
         {
-            app.MapPost("/api/checkout", Handler);
+            app.MapPost("checkout", Handler);
         }
     }
 

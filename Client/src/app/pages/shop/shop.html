@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-4 m-3 pb-4">
-  @for (i of [1, 2, 3]; track i) {
-    <app-product-card [id]="i"></app-product-card>
+  @for (product of productsWithPrices(); track product) {
+    <app-product-card [product]="product"></app-product-card>
   }
 </div>

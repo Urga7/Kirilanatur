@@ -1,6 +1,5 @@
 import {Component, inject} from '@angular/core';
 import {ShoppingBag} from '../../../common/shopping-bag.service';
-import {ProductData} from '../../../common/product-data.service';
 import { Checkout } from '../../../common/checkout';
 
 @Component({
@@ -10,8 +9,6 @@ import { Checkout } from '../../../common/checkout';
 })
 export class ShoppingBagPreview {
   protected shoppingBag = inject(ShoppingBag)
-  protected productData = inject(ProductData)
-
   private checkout = inject(Checkout)
 
   protected toCheckout() {

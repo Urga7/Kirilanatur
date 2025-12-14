@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import {ProductCard} from '../common/product-card/product-card';
+import { ProductRepository, ProductWithPrices } from '../../common/product-repository';
 
 @Component({
   selector: 'app-shop',
@@ -8,6 +9,12 @@ import {ProductCard} from '../common/product-card/product-card';
   ],
   templateUrl: './shop.html',
 })
-export class Shop {
+export class Shop implements OnInit {
+  private readonly productRepository = inject(ProductRepository)
+  protected readonly productsWithPrices = signal<ProductWithPrices[]>([])
 
+  async ngOnInit() {
+    const productsWithPrices = await this.productRepository.productsWithPrices()
+    this.productsWithPrices.set(productsWithPrices)
+  }
 }

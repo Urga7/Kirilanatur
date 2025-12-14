@@ -5,7 +5,7 @@ import {Product} from './pages/common/product/product';
 
 export const routes: Routes = [
   {path: 'home', component: Home},
-  {path: 'shop/product/:id', component: Product},
-  {path: 'shop', component: Shop},
+  {path: 'products/:name', component: Product},
+  {path: 'products', component: Shop},
   {path: '', redirectTo: 'home', pathMatch: 'full'},
 ];

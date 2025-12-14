@@ -30,7 +30,7 @@ export class Navigation {
 
   protected readonly navItems: NavigationItem[] = [
     { label: 'DOMOV', route: '/home' },
-    { label: 'TRGOVINA', route: '/shop' },
+    { label: 'TRGOVINA', route: '/products' },
     { label: 'ZGODBA', route: '/home', selector: 'story' },
     { label: 'MATERIALI', route: '/home', selector: 'materials' },
     { label: 'KONTAKT', route: '/home', selector: 'contact' },
