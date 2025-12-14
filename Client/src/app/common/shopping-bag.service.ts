@@ -1,4 +1,4 @@
-import {computed, Injectable, signal} from '@angular/core';
+import { computed, effect, Injectable, signal } from '@angular/core';
 import { ShoeSize } from '../pages/common/product/product';
 import { ProductWithPrices } from './product-repository';
 
@@ -16,17 +16,26 @@ export interface ShoppingBagItem {
   providedIn: 'root'
 })
 export class ShoppingBag {
-  readonly items = signal<ShoppingBagItem[]>([])
+  private readonly STORAGE_KEY = 'shopping_bag_items';
+  readonly items = signal<ShoppingBagItem[]>(this.loadFromStorage())
   readonly itemCount = computed(() =>
     this.items()
       .reduce((currentSum, item) =>
       currentSum + item.quantity, 0)
   )
+
   readonly totalPrice = computed(() => {
     const items = this.items()
     return items.reduce((currentSum, item) =>
       currentSum + item.quantity * item.price, 0)
   })
+
+  constructor() {
+    effect(() => {
+      const currentItems = this.items();
+      localStorage.setItem(this.STORAGE_KEY, JSON.stringify(currentItems));
+    });
+  }
 
   addItem(product: ProductWithPrices, shoeSize: ShoeSize, quantity: number = 1) {
     const items = this.items()
@@ -67,5 +76,23 @@ export class ShoppingBag {
     }
 
     this.items.set([...items])
+  }
+
+  clear() {
+    this.items.set([])
+  }
+
+  private loadFromStorage(): ShoppingBagItem[] {
+    const stored = localStorage.getItem(this.STORAGE_KEY)
+    if (!stored) {
+      return []
+    }
+
+    try {
+      return JSON.parse(stored)
+    } catch (e) {
+      console.error('Failed to parse shopping bag from storage', e)
+      return []
+    }
   }
 }
