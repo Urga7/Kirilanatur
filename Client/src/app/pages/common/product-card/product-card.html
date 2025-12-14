@@ -1,6 +1,6 @@
 @let product = this.product();
 <div (click)="goToProduct()" class="bg-(--beige-primary-light) p-3 cursor-pointer">
-  <img src="assets/images/products/{{product.mainImage}}" alt="{{product.mainImage}}"/>
+  <img src="assets/images/products/{{product.mainImage}}" alt="{{product.mainImage}}" loading="lazy"/>
   <div class="flex items-center justify-between mt-3">
     <h3 [innerText]="product.name"></h3>
     <h3 [innerText]="product.defaultPrice + ',00 EUR'"></h3>
