@@ -2,6 +2,7 @@
 using JetBrains.Annotations;
 using Kirilanatur.Infrastructure.Attributes;
 using Kirilanatur.Infrastructure.Endpoints;
+using Microsoft.Extensions.Caching.Memory;
 using Stripe;
 
 namespace Kirilanatur.Features;
@@ -29,12 +30,28 @@ public static class GetProducts
         }
     }
 
-    public static async Task<IResult> Handler()
+    private const string CacheKey = "GetProducts:All";
+    private static readonly MemoryCacheEntryOptions CacheOptions = new()
+    {
+        AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(30)
+    };
+
+    public static async Task<IResult> Handler(IMemoryCache cache)
+    {
+        if (!cache.TryGetValue(CacheKey, out ProductDto[]? products))
+        {
+            products = await GetProductsAsync();
+            cache.Set(CacheKey, products, CacheOptions);
+        }
+
+        return Results.Ok(new GetProductsResponse(products!));
+    }
+
+    private static async Task<ProductDto[]> GetProductsAsync()
     {
         var productsService = new ProductService();
         var stripeResponse = await productsService.ListAsync();
-        var products = stripeResponse.Data.Select(ToProductDto).OrderBy(p => p.Name).ToArray();
-        return Results.Ok(new GetProductsResponse(products));
+        return stripeResponse.Data.Select(ToProductDto).ToArray();
     }
 
     private static ProductDto ToProductDto(this Product stripeProduct)

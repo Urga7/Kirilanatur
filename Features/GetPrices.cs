@@ -1,6 +1,7 @@
 ﻿using JetBrains.Annotations;
 using Kirilanatur.Infrastructure.Attributes;
 using Kirilanatur.Infrastructure.Endpoints;
+using Microsoft.Extensions.Caching.Memory;
 using Stripe;
 
 namespace Kirilanatur.Features;
@@ -27,13 +28,28 @@ public static class GetPrices
     }
     
     private static readonly PriceListOptions PriceListOptions = new() { Limit = 100 };
+    private const string CacheKey = "GetPrices:All";
+    private static readonly MemoryCacheEntryOptions CacheOptions = new()
+    {
+        AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(30)
+    };
     
-    public static async Task<IResult> Handler()
+    public static async Task<IResult> Handler(IMemoryCache cache)
+    {
+        if (!cache.TryGetValue(CacheKey, out PriceDto[]? prices))
+        {
+            prices = await GetPricesAsync();
+            cache.Set(CacheKey, prices, CacheOptions);
+        }
+
+        return Results.Ok(new GetPricesResponse(prices!));
+    }
+
+    private static async Task<PriceDto[]> GetPricesAsync()
     {
         var priceService = new PriceService();
         var stripeResponse = await priceService.ListAsync(PriceListOptions);
-        var prices = stripeResponse.Data.Select(ToProductDto).ToArray();
-        return Results.Ok(new GetPricesResponse(prices));
+        return stripeResponse.Data.Select(ToProductDto).ToArray();
     }
     
     private static PriceDto ToProductDto(this Price stripePrice)

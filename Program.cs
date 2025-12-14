@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddEndpoints();
+builder.Services.AddMemoryCache();
 
 builder.Configuration.AddAzureKeyVault(
 new Uri(builder.Configuration["KeyVault:VaultUri"]!),
