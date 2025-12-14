@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { ApiClient, HttpRequestMethodType } from '../api/api-client';
 import { GetProductPriceId, ProductPriceId } from './product-price-id';
 import { ShoppingBag } from './shopping-bag.service';
+import { KirilanaturApi } from '../api/kirilanatur/kirilanatur-api';
 
 export interface CheckoutRequest {
   items: CheckoutItem[]
@@ -21,8 +22,7 @@ export interface CheckoutResponse {
   providedIn: 'root'
 })
 export class Checkout {
-  private readonly httpClient = inject(HttpClient)
-  private readonly apiClient = new ApiClient(this.httpClient, 'http://localhost:5122/api/')
+  private readonly kirilanaturApi = inject(KirilanaturApi)
   private readonly shoppingBag = inject(ShoppingBag)
 
   public async purchase() {
@@ -31,9 +31,7 @@ export class Checkout {
       ({priceId: GetProductPriceId(it.productId, it.size), quantity: it.quantity}))
 
     const request: CheckoutRequest = { items: orderItems }
-
-    const response = await this.apiClient.callApi<CheckoutResponse>(
-      "checkout", undefined, HttpRequestMethodType.POST, request)
+    const response = await this.kirilanaturApi.post.checkout(request)
 
     console.log(response)
     window.location.href = response.data.url

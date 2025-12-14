@@ -11,10 +11,10 @@ public static class StripeSetup
             var stripeSecretKey = builder.Configuration.GetValue<string>("stripe-secret-key");
             StripeConfiguration.ApiKey = stripeSecretKey;
             
-            builder.Services.AddScoped<TokenService>();
             builder.Services.AddScoped<ChargeService>();
             builder.Services.AddScoped<CustomerService>();
             builder.Services.AddScoped<ProductService>();
+            builder.Services.AddScoped<PriceService>();
             return builder;
         }
     }

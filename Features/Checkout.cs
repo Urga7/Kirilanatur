@@ -12,7 +12,7 @@ public static class Checkout
     [DataContract] private record CheckoutResponse(string Url);
     
     [UsedImplicitly]
-    public class Endpoint : IEndpoint
+    public sealed class Endpoint : IEndpoint
     {
         public void MapEndpoint(IEndpointRouteBuilder app)
         {
@@ -42,8 +42,8 @@ public static class Checkout
         options.AddExtraParam("branding_settings[background_color]", "#FDFEFF");
         options.AddExtraParam("branding_settings[button_color]", "#2C2E36");
         
-        var service = new SessionService();
-        var session = await service.CreateAsync(options);
+        var sessionService = new SessionService();
+        var session = await sessionService.CreateAsync(options);
         return Results.Ok(new CheckoutResponse(session.Url));
     }
 }

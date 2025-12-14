@@ -1,5 +1,4 @@
 using Azure.Identity;
-using Azure.Security.KeyVault.Secrets;
 using Kirilanatur.Infrastructure.Endpoints;
 using Kirilanatur.Setup;
 using Scalar.AspNetCore;
@@ -42,16 +41,6 @@ if (app.Environment.IsDevelopment()) {
 
 app.UseCors(corsPolicy);
 app.UseHttpsRedirection();
-app.MapGet("secrets", async (IConfiguration configuration) =>
-{
-    var secretsClient = new SecretClient(
-    new Uri(configuration["KeyVault:VaultUri"]!),
-    new DefaultAzureCredential());
-    
-    var response = await secretsClient.GetSecretAsync("stripe-secret-key");
-    return Results.Ok(response.Value);
-});
-
 app.UseAuthorization();
 app.MapControllers();
 app.MapEndpoints();
