@@ -11,7 +11,7 @@ public static class Checkout
     
     [Dto] private record CheckoutItem(string PriceId, long Quantity);
     
-    [Dto] private record CheckoutResponse(string Url);
+    [Dto] private record CheckoutResponse(string ClientSecret);
     
     [UsedImplicitly]
     public sealed class Endpoint : IEndpoint
@@ -21,7 +21,7 @@ public static class Checkout
             app.MapPost("checkout", Handler);
         }
     }
-
+    
     private static async Task<IResult> Handler(CheckoutRequest request)
     {
         var options = new SessionCreateOptions
@@ -34,18 +34,22 @@ public static class Checkout
             })
             .ToList(),
             Mode = "payment",
-            SuccessUrl = "http://localhost:4200/success",
-            CancelUrl = "http://localhost:4200/home"
+            UiMode = "embedded", 
+            ReturnUrl = "http://localhost:4200/return?session_id={CHECKOUT_SESSION_ID}"
         };
+
+        // Note: Embedded checkout relies more on Stripe Dashboard settings 
+        // or JS 'appearance' API for styling rather than extra params, 
+        // but you can leave them if supported by your API version.
         
         options.AddExtraParam("branding_settings[display_name]", "Kirilanatur");
         options.AddExtraParam("branding_settings[font_family]", "lato");
         options.AddExtraParam("branding_settings[border_style]", "rectangular");
         options.AddExtraParam("branding_settings[background_color]", "#FDFEFF");
         options.AddExtraParam("branding_settings[button_color]", "#2C2E36");
-        
+    
         var sessionService = new SessionService();
         var session = await sessionService.CreateAsync(options);
-        return Results.Ok(new CheckoutResponse(session.Url));
+        return Results.Ok(new CheckoutResponse(session.ClientSecret));
     }
 }

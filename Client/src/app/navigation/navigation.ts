@@ -1,10 +1,11 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SocialMediaLinks } from '../pages/common/social-media-links/social-media-links';
 import { ShoppingBagPreview } from '../pages/common/shopping-bag-preview/shopping-bag-preview';
 import { MatBadge } from '@angular/material/badge';
 import { ShoppingBag } from '../common/shopping-bag.service';
 import { NavItem } from './nav-item/nav-item';
+import { NavigationUiState } from './navigation-ui-state';
 
 export interface NavigationItem {
   label: string
@@ -24,9 +25,10 @@ export interface NavigationItem {
   templateUrl: './navigation.html',
 })
 export class Navigation {
-  protected readonly navigationExpanded = signal(false)
-  protected readonly shoppingBagExpanded = signal(false)
   protected readonly shoppingBag = inject(ShoppingBag)
+  private readonly uiState = inject(NavigationUiState)
+  protected navigationExpanded = computed(() => this.uiState.navigationExpanded())
+  protected shoppingBagExpanded = computed(() => this.uiState.shoppingBagExpanded())
 
   protected readonly navItems: NavigationItem[] = [
     { label: 'DOMOV', route: '/home' },
@@ -36,22 +38,11 @@ export class Navigation {
     { label: 'KONTAKT', route: '/home', selector: 'contact' },
   ]
 
-  public toggleNav() {
-    const expanded = !this.navigationExpanded()
-    this.navigationExpanded.set(expanded)
-    this.adjustBodyScrollLock(expanded)
+  protected toggleNav() {
+    this.uiState.toggleNav()
   }
 
   protected toggleShoppingBag() {
-    const expanded = !this.shoppingBagExpanded()
-    this.shoppingBagExpanded.set(expanded)
-    this.adjustBodyScrollLock(expanded)
-  }
-
-  private adjustBodyScrollLock(isOverlayActive: boolean) {
-    // Lock or unlock the body scroll
-    document.body.style.overflow = isOverlayActive
-      ? 'hidden'
-      : 'auto'
+    this.uiState.toggleShoppingBag()
   }
 }

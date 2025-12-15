@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {ShoppingBag} from '../../../common/shopping-bag.service';
-import { Checkout } from '../../../common/checkout';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-bag-preview',
@@ -8,10 +8,10 @@ import { Checkout } from '../../../common/checkout';
   templateUrl: './shopping-bag-preview.html'
 })
 export class ShoppingBagPreview {
+  private router = inject(Router)
   protected shoppingBag = inject(ShoppingBag)
-  private checkout = inject(Checkout)
 
   protected toCheckout() {
-    void this.checkout.purchase()
+    void this.router.navigate(['checkout'])
   }
 }
