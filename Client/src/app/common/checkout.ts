@@ -31,7 +31,7 @@ export class Checkout implements OnInit, OnDestroy {
 
     this.stripe = await loadStripe(environment.stripePublicKey)
     if (!this.stripe) {
-      console.log('Stripe not loaded')
+      console.log('Stripe not loaded. Check public key.')
       return
     }
 

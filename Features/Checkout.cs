@@ -21,6 +21,16 @@ public static class Checkout
             app.MapPost("checkout", Handler);
         }
     }
+
+    private static readonly SessionService SessionService = new();
+    
+    private static readonly SessionShippingAddressCollectionOptions ShippingAddressCollectionOptions =
+        new() { AllowedCountries = ["SI", "AT", "HR", "IT", "DE"] };
+
+    private static readonly SessionPhoneNumberCollectionOptions PhoneNumberCollectionOptions = 
+        new() { Enabled = true };
+    
+    
     
     private static async Task<IResult> Handler(CheckoutRequest request)
     {
@@ -35,21 +45,18 @@ public static class Checkout
             .ToList(),
             Mode = "payment",
             UiMode = "embedded", 
-            ReturnUrl = "http://localhost:4200/return?session_id={CHECKOUT_SESSION_ID}"
+            ReturnUrl = "http://localhost:4200/return?session_id={CHECKOUT_SESSION_ID}",
+            ShippingAddressCollection = ShippingAddressCollectionOptions,
+            PhoneNumberCollection = PhoneNumberCollectionOptions
         };
-
-        // Note: Embedded checkout relies more on Stripe Dashboard settings 
-        // or JS 'appearance' API for styling rather than extra params, 
-        // but you can leave them if supported by your API version.
         
         options.AddExtraParam("branding_settings[display_name]", "Kirilanatur");
         options.AddExtraParam("branding_settings[font_family]", "lato");
         options.AddExtraParam("branding_settings[border_style]", "rectangular");
         options.AddExtraParam("branding_settings[background_color]", "#FDFEFF");
         options.AddExtraParam("branding_settings[button_color]", "#2C2E36");
-    
-        var sessionService = new SessionService();
-        var session = await sessionService.CreateAsync(options);
+        
+        var session = await SessionService.CreateAsync(options);
         return Results.Ok(new CheckoutResponse(session.ClientSecret));
     }
 }
