@@ -1,5 +1,5 @@
-import {Component, inject} from '@angular/core';
-import {ShoppingBag} from '../../../common/shopping-bag.service';
+import { ShoppingBag } from '../../../common/shopping-bag.service';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({

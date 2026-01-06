@@ -27,8 +27,12 @@
 <router-outlet></router-outlet>
 
 <div
-  class="fixed top-0 w-full h-screen bg-white transform transition-transform duration-200 ease-in-out flex flex-col justify-between"
+  class="fixed top-0 w-full h-screen bg-white transform transition-transform duration-200 ease-in-out"
   [class.translate-y-0]="navigationExpanded()"
+  [class.flex]="navigationExpanded()"
+  [class.flex-col]="navigationExpanded()"
+  [class.justify-between]="navigationExpanded()"
+  [class.hidden]="!navigationExpanded()"
   [class.-translate-y-full]="!navigationExpanded()">
   <div>
     <div class="w-full flex flex-row justify-end">
