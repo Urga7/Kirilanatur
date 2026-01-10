@@ -1,33 +1,49 @@
 <nav class="flex justify-between">
   <div>
-    <img class="max-h-20" src="assets/images/kirilanatur-logo.png" alt="kirilanatur-logo"/>
+    <img class="max-h-20 md:max-h-25 lg:max-h-28 xl:max-h-30" src="assets/images/kirilanatur-logo.png" alt="kirilanatur-logo" loading="eager"/>
   </div>
   <div class="flex items-center mr-4 gap-4">
-    <span (click)="toggleNav()" class="material-symbols-outlined text-2xl! cursor-pointer">menu</span>
+    <ul class="hidden md:flex gap-6 font-light mr-4">
+      @for (navItem of navItems; track navItem) {
+        <li>
+          <app-nav-item
+            [label]="navItem.label"
+            [route]="navItem.route"
+            [selector]="navItem.selector"
+          ></app-nav-item>
+        </li>
+      }
+    </ul>
 
-    @let itemCount = shoppingBag.itemCount();
-    @if (itemCount > 0) {
-      <span
-        [matBadge]="itemCount"
-        (click)="toggleShoppingBag()"
-        class="material-symbols-outlined text-2xl! cursor-pointer">
+    <div class="md:hidden">
+      <span (click)="toggleNav()" class="material-symbols-outlined text-2xl! cursor-pointer">menu</span>
+    </div>
+
+    <div class="md:pr-8">
+      @let itemCount = shoppingBag.itemCount();
+      @if (itemCount > 0) {
+        <span
+          [matBadge]="itemCount"
+          (click)="toggleShoppingBag()"
+          class="material-symbols-outlined text-2xl! cursor-pointer">
         shopping_bag
       </span>
-    }
-    @else {
-      <span
-        (click)="toggleShoppingBag()"
-        class="material-symbols-outlined text-2xl! cursor-pointer">
+      }
+      @else {
+        <span
+          (click)="toggleShoppingBag()"
+          class="material-symbols-outlined text-2xl! cursor-pointer">
         shopping_bag
       </span>
-    }
+      }
+    </div>
   </div>
 </nav>
 
 <router-outlet></router-outlet>
 
 <div
-  class="fixed top-0 w-full h-screen bg-white transform transition-transform duration-200 ease-in-out flex flex-col justify-between"
+  class="fixed top-0 w-full h-screen bg-white transform transition-transform duration-200 ease-in-out flex flex-col justify-between md:hidden"
   [class.translate-y-0]="navigationExpanded()"
   [class.-translate-y-full]="!navigationExpanded()">
   <div>
@@ -58,6 +74,7 @@
 
 <div
   class="fixed top-0 w-full h-screen bg-white transform transition-transform duration-200 ease-in-out flex flex-col justify-between"
+  [class.hidden]="!shoppingBagExpanded()"
   [class.translate-y-0]="shoppingBagExpanded()"
   [class.-translate-y-full]="!shoppingBagExpanded()">
   <div>

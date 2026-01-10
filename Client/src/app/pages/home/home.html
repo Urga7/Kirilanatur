@@ -1,29 +1,49 @@
 <div class="relative">
-  <img src="assets/images/hero-banner-mobile.jpg" alt="hero-banner" loading="lazy">
-  <h2 class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xs text-center text-shadow-lg/40 max-w-6/10 text-(--white-primary)">
-    NARAVNA POLETNA OBUTEV IZ ANANASOVEGA USNJA TRAJNOSTNO IN ROČNO IZDELANA V SLOVENIJI
+  <img src="assets/images/hero-banner-mobile.jpg" alt="hero-banner" loading="eager" class="md:hidden">
+  <img src="assets/images/hero-banner-desktop.jpg" alt="hero-banner" loading="eager" class="hidden md:block">
+
+  <h2 class="w-6/10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xs text-center text-shadow-lg/40 text-(--white-primary) md:hidden">
+    <span class="font-bold">NARAVNA POLETNA OBUTEV</span>
+    <br/>
+    TRAJNOSTNO IN ROČNO IZDELANA V SLOVENIJI
   </h2>
+
+  <h2 class="hidden w-4/10 absolute -translate-x-1/2 -translate-y-1/2 text-center tracking-[0.2em] text-amber-50
+             md:block top-1/4 left-3/4 text-5xl lg:text-6xl xl:text-7xl font-light">
+    NARAVNA POLETNA OBUTEV
+  </h2>
+  <h3 class="hidden absolute -translate-x-1/2 -translate-y-1/2 text-center text-(--white-primary) w-full font-light
+             md:block bottom-0 left-1/2 text-2xl lg:text-3xl xl:text-4xl">
+    TRAJNOSTNO IN ROČNO IZDELANA V SLOVENIJI
+  </h3>
+
 </div>
 
-<h1 class="mt-4 mb-4 pt-8 pb-8 text-center font-light bg-(--beige-primary-dark) text-(--white-primary)">UNIKATNO OBLIKOVANJE</h1>
+<h1 class="mt-4 mb-4 pt-8 pb-8 text-center font-light bg-(--beige-primary-dark) text-(--white-primary)
+           md:text-2xl lg:text-3xl xl:text-4xl">
+  UNIKATNO OBLIKOVANJE
+</h1>
 
-<div class="flex flex-col gap-4">
-  <img src="assets/images/unique-design-1.png" alt="unique-design-1" loading="lazy">
-  <img src="assets/images/unique-design-2.png" alt="unique-design-2" loading="lazy">
-  <img src="assets/images/unique-design-3.png" alt="unique-design-3" loading="lazy">
+<div class="flex flex-col gap-4 md:flex-row md:justify-between md:pl-16 md:pr-16 xl:pl-24 xl:pr-24">
+  <img src="assets/images/unique-design-1.png" alt="unique-design-1" loading="lazy" class="md:w-1/4">
+  <img src="assets/images/unique-design-2.png" alt="unique-design-2" loading="lazy" class="md:w-1/4">
+  <img src="assets/images/unique-design-3.png" alt="unique-design-3" loading="lazy" class="md:w-1/4">
 </div>
 
-<h1 id="materials" class="mt-4 mb-4 pt-8 pb-8 text-center font-light bg-(--beige-primary-dark) text-(--white-primary)">NARAVNI MATERIALI</h1>
+<h1 id="materials" class="mt-4 mb-4 pt-8 pb-8 text-center font-light bg-(--beige-primary-dark) text-(--white-primary)
+                          md:text-2xl lg:text-3xl xl:text-4xl">
+  NARAVNI MATERIALI
+</h1>
 
-<div class="mt-4 mb-4">
-  <div>
-    <div class="relative max-h-[200px] overflow-y-clip flex items-center text-center">
+<div class="mt-4 mb-4 md:flex">
+  <div class="md:w-1/2">
+    <div class="relative max-h-[200px] md:max-h-none overflow-y-clip flex items-center text-center">
       <img class="w-full" src="assets/images/pineapple-leather.jpg" alt="pineapple-leather" loading="lazy">
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xs text-shadow-lg/40 text-(--white-primary)">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xs md:text-xl lg:text-2xl xl:text-3xl text-shadow-lg/40 text-(--white-primary) font-light">
         <h2>
           ANANASOVO USNJE
         </h2>
-        <h3>
+        <h3 class="md:text-lg lg:text-xl xl:text-2xl">
           fibre made from waste pineapple leaves
         </h3>
       </div>
@@ -43,8 +63,8 @@
       </div>
     </div>
   </div>
-  <div>
-    <div class="relative max-h-[200px] overflow-y-clip flex items-center text-center">
+  <div class="md:w-1/4">
+    <div class="relative max-h-[200px] md:max-h-none overflow-y-clip flex items-center text-center">
       <img class="w-full" src="assets/images/cow-leather.jpg" alt="cow-leather" loading="lazy">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xs text-shadow-lg/40 text-(--white-primary)">
         <h2>
@@ -59,8 +79,8 @@
       </div>
     </div>
   </div>
-  <div>
-    <div class="relative max-h-[200px] overflow-y-clip flex items-center text-center">
+  <div class="md:w-1/4">
+    <div class="relative max-h-[200px] md:max-h-none overflow-y-clip flex items-center text-center">
       <img class="w-full" src="assets/images/lan.jpg" alt="pineapple-leather" loading="lazy">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-xs text-shadow-lg/40 text-(--white-primary)">
         <h2>
@@ -77,27 +97,32 @@
   </div>
 </div>
 
-<div class="mt-4 mb-4 p-4 text-center font-light bg-(--beige-primary-dark) flex justify-center">
-  <div class="bg-(--beige-primary-light) outline outline-white w-fit p-2">
-    <div class="flex justify-center items-center gap-2">
-      <h2 class="text-(--text-color-primary)!">DARILNI BON</h2>
-      <div class="material-symbols-outlined">redeem</div>
-    </div>
-    <p class="text-xs">Želite podariti nekaj unikatnega? Nekaj za dušo in telo?</p>
-    <p class="text-xs font-medium">Podarite darilni bon KIRILA NATUR!</p>
-  </div>
-</div>
+<h1 class="mt-4 mb-4 pt-8 pb-8 text-center font-light bg-(--beige-primary-dark) text-(--white-primary)
+           md:text-2xl lg:text-3xl xl:text-4xl">
+  TRAJNOSTNA IN ETIČNA IZDELAVA
+</h1>
 
-<div id="story">
-  <img src="assets/images/handcrafted-sandal.png" alt="handcrafted-sandal" loading="lazy">
-  <article class="text-center p-4 text-xs">
+<!--<div class="mt-4 mb-4 p-4 text-center font-light bg-(&#45;&#45;beige-primary-dark) flex justify-center">-->
+<!--  <div class="bg-(&#45;&#45;beige-primary-light) outline outline-white w-fit p-2">-->
+<!--    <div class="flex justify-center items-center gap-2">-->
+<!--      <h2 class="text-(&#45;&#45;text-color-primary)!">DARILNI BON</h2>-->
+<!--      <div class="material-symbols-outlined">redeem</div>-->
+<!--    </div>-->
+<!--    <p class="text-xs">Želite podariti nekaj unikatnega? Nekaj za dušo in telo?</p>-->
+<!--    <p class="text-xs font-medium">Podarite darilni bon KIRILA NATUR!</p>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div id="story" class="md:flex">
+  <img src="assets/images/handcrafted-sandal.png" alt="handcrafted-sandal" loading="lazy" class="md:w-[50vw]">
+  <article class="text-center p-4 text-xs md:text-base tracking-(--letter-spacing-normal) md:pl-12 md:pr-12">
     Navdih blagovne znamke Kirila izvira iz ljubezni do narave, premišljene izbire naravnih
     materialov ter načina življenja, ki spoštuje tako človeka kot okolje.
     Kirila sandali, natikači in japonke so ustvarjeni za ženske, ki cenijo lahkoten korak, udobje ter
     estetsko preprostost, a hkrati tudi odgovornost do sebe, drugih in planeta. So modna
     obutev za vse priložnosti, ki vas bo spremljala od živahnega mestnega vrveža do
     sproščenega sprehoda ob obali.
-    <br/>
+    <div class="h-4"></div>
     Vsak par je ročno izdelan iz skrbno izbranih naravnih materialov, kot so ananasovo in goveje
     usnje, bombaž in lan. Sandali dihajo z vašo kožo in se sčasoma popolnoma prilagodijo obliki
     vašega stopala. Vsak par je unikaten in neponovljiv – kot ženska, ki ga nosi.
@@ -107,17 +132,20 @@
   </article>
 </div>
 
-<h1 class="mt-4 mb-4 pt-8 pb-8 text-center font-light bg-(--beige-primary-dark) text-(--white-primary)">TRAJNOSTNA IN ETIČNA IZDELAVA</h1>
+<h1 class="mt-4 mb-4 pt-8 pb-8 text-center font-light bg-(--beige-primary-dark) text-(--white-primary)
+           md:text-2xl lg:text-3xl xl:text-4xl">
 
-<div class="pt-4 pb-12 bg-(--beige-primary-light) flex flex-col items-center gap-6 p-4">
-  <div class="text-xs text-center">
+</h1>
+
+<div class="pt-4 pb-12 md:pb-18 lg:pb-24 bg-(--beige-primary-light) flex flex-col items-center gap-6 p-4 md:flex-row md:pl-8 md:pr-8 justify-between">
+  <div class="text-xs text-center md:text-left md:text-base">
     KIRILANATUR<br/>
     Cirila Gajšek s.p.<br/>
     Prvomajska ul. 94<br/>
     5000 Nova Gorica<br/>
     Slovenija
   </div>
-  <ul class="text-xs text-center">
+  <ul class="text-xs text-center md:text-base">
     <li id="contact">KONTAKT</li>
     <li class="font-medium">www.kirilanatur.com</li>
     <li class="flex items-center justify-center">

@@ -7,7 +7,7 @@ html {
   font-weight: var(--font-weight-normal);
   font-size: var(--font-size-normal);
   color: var(--text-color-primary);
-  letter-spacing: var(--letter-spacing-normal);
+  letter-spacing: var(--letter-spacing-wide);
 }
 
 html, body {
